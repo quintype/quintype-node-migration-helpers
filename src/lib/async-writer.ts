@@ -20,10 +20,10 @@ export async function* partitionAll<T>(
   }
 }
 
-interface GenerateToFileOptions {
-  readonly batchSize: number | undefined;
-  readonly directory: string;
-  readonly filePrefix: string;
+export interface GenerateToFileOptions {
+  readonly batchSize?: number;
+  readonly directory?: string;
+  readonly filePrefix?: string;
 }
 
 export async function writeToFiles<T>(

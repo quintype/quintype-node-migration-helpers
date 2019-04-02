@@ -1,8 +1,19 @@
 import { GenerateToFileOptions, writeToFiles } from './async-writer';
 
-export interface Story {
+interface StoryMandatoryFields {
+  readonly 'external-id': string;
   readonly headline: string;
 }
+
+interface StoryBody {
+  readonly body: string;
+}
+
+interface StoryElements {
+  readonly 'story-elements': ReadonlyArray<string>;
+}
+
+export type Story = StoryMandatoryFields & (StoryElements | StoryBody);
 
 /**
  * Takes a generator of stories, and writes the stories into .txt.gz files. Each file will have 1000 stories.

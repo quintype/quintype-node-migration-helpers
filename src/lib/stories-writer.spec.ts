@@ -8,7 +8,7 @@ import { Story, writeStories } from './stories-writer';
 test('writeStories writes stories into files', async t => {
   async function* generate(): AsyncIterableIterator<Story> {
     for (let i = 0; i < 10; i++) {
-      yield { headline: `Story Number ${i}` };
+      yield { headline: `Story Number ${i}`, 'external-id': `story-${i}`, body: '<p><Foo/p>' };
     }
   }
   const { path } = await dir({ unsafeCleanup: true });

@@ -3,6 +3,7 @@ import { createWriteStream } from 'fs';
 import { Readable } from 'stream';
 import { createGzip } from 'zlib';
 
+/** @private */
 export async function* partitionAll<T>(
   stream: AsyncIterableIterator<T>,
   size: number = 1000
@@ -26,6 +27,7 @@ export interface GenerateToFileOptions {
   readonly filePrefix?: string;
 }
 
+/** @private */
 export async function writeToFiles<T>(
   stream: AsyncIterableIterator<T>,
   { batchSize, directory = '.', filePrefix = 'c' }: GenerateToFileOptions
@@ -37,6 +39,7 @@ export async function writeToFiles<T>(
   }
 }
 
+/** @private */
 function writeBatchToFile<T>(batch: T[], file: string): Promise<void> {
   let numberRead = 0;
   const stream = new Readable({

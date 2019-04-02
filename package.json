@@ -54,6 +54,7 @@
     "sha.js": "^2.4.11"
   },
   "devDependencies": {
+    "@types/tmp": "0.0.34",
     "ava": "1.0.0-beta.7",
     "codecov": "^3.1.0",
     "cz-conventional-changelog": "^2.1.0",
@@ -63,6 +64,8 @@
     "opn-cli": "^4.0.0",
     "prettier": "^1.15.2",
     "standard-version": "^4.4.0",
+    "tmp": "^0.1.0",
+    "tmp-promise": "^1.0.5",
     "trash-cli": "^1.4.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.17.0",

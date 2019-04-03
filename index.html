@@ -65,7 +65,11 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h1 id="-quintype-migration-helpers">@quintype/migration-helpers</h1>
-				<p>Helper Functions for Migrations</p>
+				<p>Helper Functions for Migrations to the Quintype platform</p>
+				<h2 id="the-goal">The Goal</h2>
+				<p>This library is to be used to help easily migrate publishers. This library exposes utility functions that will automatically create .txt.gz files with the content that you expose. Once this is created, these files can be uploaded to S3 and imported by the Quintype Team.</p>
+				<p>Most functions accept an async generator function to push content. There are also types exposed so that you can ensure you are exporting all mandatory fields, and avoiding typos on optional ones.</p>
+				<p>If you are looking for a good place to start, please see <a href="./globals.html#writestories">writeStories</a></p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

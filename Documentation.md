@@ -1,5 +1,3 @@
-# @quintype/migration-helpers
-
 Helper Functions for Migrations to the Quintype platform
 
 ## The Goal

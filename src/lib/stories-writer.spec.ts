@@ -3,12 +3,25 @@ import test from 'ava';
 import { dir } from 'tmp-promise';
 
 import { readFromGzipFile } from '../test-utils/read-from-file';
-import { Story, writeStories } from './stories-writer';
+import { Story } from './editor-types';
+import { writeStories } from './stories-writer';
+
+const commonStoryFields = {
+  authors: [],
+  body: '<p><Foo/p>',
+  'first-published-at': 0,
+  'last-published-at': 0,
+  'published-at': 0,
+  sections: [],
+  'story-template': 'text',
+  summary: 'A story for testing',
+  tags: []
+};
 
 test('writeStories writes stories into files', async t => {
   async function* generate(): AsyncIterableIterator<Story> {
     for (let i = 0; i < 10; i++) {
-      yield { headline: `Story Number ${i}`, 'external-id': `story-${i}`, body: '<p><Foo/p>' };
+      yield { headline: `Story Number ${i}`, 'external-id': `story-${i}`, slug: `story-${i}`, ...commonStoryFields };
     }
   }
   const { path } = await dir({ unsafeCleanup: true });

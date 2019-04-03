@@ -17,7 +17,7 @@ interface StoryMandatoryFields {
   /** The time of most recent edit. This should be in epoch date * 1000 for milliseconds */
   readonly 'published-at': number;
 
-  /** The type of the story. Use 'text' for a normal story */
+  /** The type of the story. Use `'text'` for a normal story */
   readonly 'story-template': string;
 }
 
@@ -51,7 +51,7 @@ interface StoryMetadataFields {
 
 /** Use StoryBody to send a blob of HTML to be parsed later. Also @see StoryElements */
 interface StoryBody {
-  /** An HTML blob of the story. Should look like "<p>Para1</p><p>Para2</p>" */
+  /** An HTML blob of the story. Should look like `"<p>Para1</p><p>Para2</p>""` */
   readonly body: string;
 }
 

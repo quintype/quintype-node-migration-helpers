@@ -2,5 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/gja/@quintype/migration-helpers/compare/v1.0.1...v1.1.0) (2019-04-04)
+
+
+### Features
+
+* writeStories can now take a stream of stories ([03112a0](https://github.com/gja/@quintype/migration-helpers/commit/03112a0))
+
+
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2019-04-03)

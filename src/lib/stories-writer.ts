@@ -1,3 +1,5 @@
+import { Readable } from 'stream';
+
 import { GenerateToFileOptions, writeToFiles } from './async-writer';
 import { Story } from './editor-types';
 
@@ -20,12 +22,33 @@ import { Story } from './editor-types';
  * writeStories(readStoriesFromDatabase(), 'interviews')
  * ```
  *
- * @param stream An Async Generator which yields stories
+ * You may also use a stream to produce stories
+ *
+ * ```ts
+ * import { Story, writeStories } from '@quintype/migration-helpers';
+ * import { Transform } from 'stream'
+ *
+ * const stream = conn.query("select * from stories").stream();
+ *
+ * const transformSqlRowToStories = new Transform({
+ *   objectMode: true,
+ *
+ *   transform(rows, _, callback) {
+ *     for(const story of rows) {
+ *       this.push(rowToStory(story))
+ *     }
+ *   }
+ * })
+ *
+ * writeStories(stream.pipe(transformSqlRowToStories));
+ * ```
+ *
+ * @param stream An Async Generator or Readable which yields stories
  * @param source A string describing where the stories come from. ex: interviews
  * @param opts Control some fine grained tuning
  */
 export function writeStories(
-  stream: AsyncIterableIterator<Story>,
+  stream: AsyncIterableIterator<Story> | Readable,
   source: string = 'export',
   opts: GenerateToFileOptions = {}
 ): Promise<void> {

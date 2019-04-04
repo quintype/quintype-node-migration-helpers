@@ -25,7 +25,7 @@
     "cov:send": "nyc report --reporter=lcov > coverage.lcov && codecov",
     "cov:check": "nyc report && nyc check-coverage --lines 100 --functions 100",
     "doc": "run-s doc:html && opn build/docs/index.html",
-    "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --readme Documentation.md --out build/docs",
+    "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --excludeExternals --mode file --readme Documentation.md --out build/docs",
     "doc:json": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --readme Documentation.md --json build/docs/typedoc.json",
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
     "version": "standard-version",
@@ -70,8 +70,8 @@
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.17.0",
     "tslint-immutable": "^5.0.0",
-    "typedoc": "^0.13.0",
-    "typescript": "^3.1.6"
+    "typedoc": "^0.14.2",
+    "typescript": "^3.4.1"
   },
   "ava": {
     "failFast": true,

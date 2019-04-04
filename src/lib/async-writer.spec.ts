@@ -1,25 +1,12 @@
 // tslint:disable:no-expression-statement
 import test from 'ava';
+import { Readable } from 'stream';
 import { dir } from 'tmp-promise';
 
 import { readFromGzipFile } from '../test-utils/read-from-file';
-import { partitionAll, writeToFiles } from './async-writer';
+import { writeToFiles } from './async-writer';
 
-test('partitionAll partitions an async stream', async t => {
-  async function* generate(): AsyncIterableIterator<number> {
-    for (let i = 0; i < 10; i++) {
-      yield i;
-    }
-  }
-
-  const result = partitionAll(generate(), 3);
-  t.deepEqual((await result.next()).value, [0, 1, 2]);
-  t.deepEqual((await result.next()).value, [3, 4, 5]);
-  t.deepEqual((await result.next()).value, [6, 7, 8]);
-  t.deepEqual((await result.next()).value, [9]);
-});
-
-test('writeToDirectory writes into multiple files', async t => {
+test('writeToFiles writes into multiple files', async t => {
   async function* generate(): AsyncIterableIterator<any> {
     for (let i = 0; i < 10; i++) {
       yield { value: i };
@@ -31,6 +18,50 @@ test('writeToDirectory writes into multiple files', async t => {
     directory: path,
     filePrefix: 'test'
   });
-  const fileContents = await readFromGzipFile(`${path}/test-00002.txt.gz`);
-  t.is('{"value":3}\n{"value":4}\n{"value":5}\n', fileContents);
+
+  t.is('{"value":0}\n{"value":1}\n{"value":2}\n', await readFromGzipFile(`${path}/test-00001.txt.gz`));
+  t.is('{"value":3}\n{"value":4}\n{"value":5}\n', await readFromGzipFile(`${path}/test-00002.txt.gz`));
+  t.is('{"value":6}\n{"value":7}\n{"value":8}\n', await readFromGzipFile(`${path}/test-00003.txt.gz`));
+  t.is('{"value":9}\n', await readFromGzipFile(`${path}/test-00004.txt.gz`));
+});
+
+test('writeToFiles works when an exact multiple of the batch size', async t => {
+  async function* generate(): AsyncIterableIterator<any> {
+    for (let i = 0; i < 9; i++) {
+      yield { value: i };
+    }
+  }
+  const { path } = await dir({ unsafeCleanup: true });
+  await writeToFiles(generate(), {
+    batchSize: 3,
+    directory: path,
+    filePrefix: 'test'
+  });
+
+  t.is('{"value":0}\n{"value":1}\n{"value":2}\n', await readFromGzipFile(`${path}/test-00001.txt.gz`));
+  t.is('{"value":3}\n{"value":4}\n{"value":5}\n', await readFromGzipFile(`${path}/test-00002.txt.gz`));
+  t.is('{"value":6}\n{"value":7}\n{"value":8}\n', await readFromGzipFile(`${path}/test-00003.txt.gz`));
+});
+
+test('writeToFiles works on streams', async t => {
+  const generate = new Readable({
+    objectMode: true,
+    read(): void {
+      for (let i = 0; i < 10; i++) {
+        this.push({ value: i });
+      }
+      this.push(null);
+    }
+  });
+  const { path } = await dir({ unsafeCleanup: true });
+  await writeToFiles(generate, {
+    batchSize: 3,
+    directory: path,
+    filePrefix: 'test'
+  });
+
+  t.is('{"value":0}\n{"value":1}\n{"value":2}\n', await readFromGzipFile(`${path}/test-00001.txt.gz`));
+  t.is('{"value":3}\n{"value":4}\n{"value":5}\n', await readFromGzipFile(`${path}/test-00002.txt.gz`));
+  t.is('{"value":6}\n{"value":7}\n{"value":8}\n', await readFromGzipFile(`${path}/test-00003.txt.gz`));
+  t.is('{"value":9}\n', await readFromGzipFile(`${path}/test-00004.txt.gz`));
 });

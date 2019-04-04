@@ -22,22 +22,28 @@ function asyncToStream<T>(generator: AsyncIterableIterator<T>): Readable {
 /** @private */
 function batchStream<T>(size: number = 1000): Transform {
   let batch: T[] = [];
+  let batchNumber = 1;
+
+  function emitBatch(transform: Transform): void {
+    transform.push({ batchNumber, batch });
+    batchNumber++;
+    batch = [];
+  }
+
   return new Transform({
     objectMode: true,
 
     transform(data, _, callback): void {
       batch = batch.concat(data);
       if (batch.length >= size) {
-        this.push(batch);
-        batch = [];
+        emitBatch(this);
       }
       callback();
     },
 
     flush(): void {
       if (batch.length > 0) {
-        this.push(batch);
-        batch = [];
+        emitBatch(this);
       }
       this.push(null);
     }
@@ -56,14 +62,14 @@ export function writeToFiles<T>(
   { batchSize, directory = '.', filePrefix = 'c' }: GenerateToFileOptions
 ): Promise<void> {
   return new Promise(resolve => {
-    let fileNum = 0;
     const stream = source instanceof Readable ? source : asyncToStream(source);
     const promises: Array<Promise<void>> = [];
     stream
       .pipe(batchStream(batchSize))
-      .on('data', async batch => {
-        fileNum++;
-        promises.push(writeBatchToFile(batch, `${directory}/${filePrefix}-${String(fileNum).padStart(5, '0')}.txt.gz`));
+      .on('data', async ({ batchNumber, batch }) => {
+        promises.push(
+          writeBatchToFile(batch, `${directory}/${filePrefix}-${String(batchNumber).padStart(5, '0')}.txt.gz`)
+        );
       })
       .on('end', () => Promise.all(promises).then(_0 => resolve()));
   });

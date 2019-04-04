@@ -1,6 +1,6 @@
 // tslint:disable:no-expression-statement readonly-array no-if-statement
 import { createWriteStream } from 'fs';
-import { Readable, Transform } from 'stream';
+import { Readable, Transform, Writable } from 'stream';
 import { createGzip } from 'zlib';
 
 /** @private */
@@ -61,24 +61,34 @@ export function writeToFiles<T>(
   source: AsyncIterableIterator<T> | Readable,
   { batchSize, directory = '.', filePrefix = 'c' }: GenerateToFileOptions
 ): Promise<void> {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     const stream = source instanceof Readable ? source : asyncToStream(source);
-    const promises: Array<Promise<void>> = [];
     stream
       .pipe(batchStream(batchSize))
-      .on('data', async ({ batchNumber, batch }) => {
-        promises.push(
-          writeBatchToFile(batch, `${directory}/${filePrefix}-${String(batchNumber).padStart(5, '0')}.txt.gz`)
-        );
-      })
-      .on('end', () => Promise.all(promises).then(_0 => resolve()));
+      .pipe(writeBatchToFile(directory, filePrefix))
+      .on('finish', resolve)
+      .on('error', reject);
   });
 }
 
 /** @private */
-function writeBatchToFile<T>(batch: T[], file: string): Promise<void> {
+function writeBatchToFile(directory: string, filePrefix: string): Writable {
+  return new Writable({
+    objectMode: true,
+
+    write({ batchNumber, batch }, _, callback): void {
+      createJSONStream(batch)
+        .pipe(createGzip())
+        .pipe(createWriteStream(`${directory}/${filePrefix}-${String(batchNumber).padStart(5, '0')}.txt.gz`))
+        .on('finish', callback);
+    }
+  });
+}
+
+/** @private */
+function createJSONStream<T>(batch: T[]): Readable {
   let numberRead = 0;
-  const stream = new Readable({
+  return new Readable({
     read(): void {
       const slice = batch.slice(numberRead, numberRead + 16);
       numberRead += 16;
@@ -91,12 +101,5 @@ function writeBatchToFile<T>(batch: T[], file: string): Promise<void> {
         }
       }
     }
-  });
-
-  return new Promise(resolve => {
-    stream
-      .pipe(createGzip())
-      .pipe(createWriteStream(file))
-      .on('finish', resolve);
   });
 }

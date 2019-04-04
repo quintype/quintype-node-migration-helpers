@@ -4,36 +4,25 @@ import { Readable, Transform } from 'stream';
 import { createGzip } from 'zlib';
 
 /** @private */
-function partitionAsyncGeneratorToStream<T>(stream: AsyncIterableIterator<T>, size: number = 1000): Readable {
+function asyncToStream<T>(generator: AsyncIterableIterator<T>): Readable {
   return new Readable({
     objectMode: true,
 
     async read(): Promise<void> {
-      const batch: T[] = [];
-
-      while (batch.length < size) {
-        const { done, value } = await stream.next();
-
-        if (done) {
-          if (batch.length > 0) {
-            this.push(batch);
-          }
-          this.push(null);
-          return;
-        } else {
-          batch.push(value);
-        }
+      const { done, value } = await generator.next();
+      if (done) {
+        this.push(null);
+      } else {
+        this.push(value);
       }
-
-      this.push(batch);
     }
   });
 }
 
 /** @private */
-function batchStream<T>(stream: Readable, size: number = 1000): Readable {
+function batchStream<T>(size: number = 1000): Transform {
   let batch: T[] = [];
-  const transform = new Transform({
+  return new Transform({
     objectMode: true,
 
     transform(data, _, callback): void {
@@ -53,7 +42,6 @@ function batchStream<T>(stream: Readable, size: number = 1000): Readable {
       this.push(null);
     }
   });
-  return stream.pipe(transform);
 }
 
 export interface GenerateToFileOptions {
@@ -64,17 +52,15 @@ export interface GenerateToFileOptions {
 
 /** @private */
 export function writeToFiles<T>(
-  stream: AsyncIterableIterator<T> | Readable,
+  source: AsyncIterableIterator<T> | Readable,
   { batchSize, directory = '.', filePrefix = 'c' }: GenerateToFileOptions
 ): Promise<void> {
   return new Promise(resolve => {
     let fileNum = 0;
+    const stream = source instanceof Readable ? source : asyncToStream(source);
     const promises: Array<Promise<void>> = [];
-    const partitionStream =
-      stream instanceof Readable
-        ? batchStream(stream, batchSize)
-        : partitionAsyncGeneratorToStream(stream, batchSize);
-    partitionStream
+    stream
+      .pipe(batchStream(batchSize))
       .on('data', async batch => {
         fileNum++;
         promises.push(writeBatchToFile(batch, `${directory}/${filePrefix}-${String(fileNum).padStart(5, '0')}.txt.gz`));

@@ -4,21 +4,26 @@ import { Readable } from 'stream';
 import { createGzip } from 'zlib';
 
 /** @private */
-export async function* partitionAll<T>(
-  stream: AsyncIterableIterator<T>,
-  size: number = 1000
-): AsyncIterableIterator<T[]> {
-  let batch: T[] = [];
-  for await (const item of stream) {
-    batch.push(item);
-    if (batch.length === size) {
-      yield batch;
-      batch = [];
+export function partitionToStream<T>(stream: AsyncIterableIterator<T>, size: number = 1000): Readable {
+  return new Readable({
+    objectMode: true,
+    async read(): Promise<void> {
+      const batch: T[] = [];
+      while (batch.length < size) {
+        const { done, value } = await stream.next();
+        if (done) {
+          if (batch.length > 0) {
+            this.push(batch);
+          }
+          this.push(null);
+          return;
+        } else {
+          batch.push(value);
+        }
+      }
+      this.push(batch);
     }
-  }
-  if (batch.length) {
-    yield batch;
-  }
+  });
 }
 
 export interface GenerateToFileOptions {
@@ -28,15 +33,20 @@ export interface GenerateToFileOptions {
 }
 
 /** @private */
-export async function writeToFiles<T>(
+export function writeToFiles<T>(
   stream: AsyncIterableIterator<T>,
   { batchSize, directory = '.', filePrefix = 'c' }: GenerateToFileOptions
 ): Promise<void> {
-  let fileNum = 1;
-  for await (const batch of partitionAll(stream, batchSize)) {
-    await writeBatchToFile(batch, `${directory}/${filePrefix}-${String(fileNum).padStart(5, '0')}.txt.gz`);
-    fileNum++;
-  }
+  return new Promise(resolve => {
+    let fileNum = 0;
+    const promises: Array<Promise<void>> = [];
+    partitionToStream(stream, batchSize)
+      .on('data', async batch => {
+        fileNum++;
+        promises.push(writeBatchToFile(batch, `${directory}/${filePrefix}-${String(fileNum).padStart(5, '0')}.txt.gz`));
+      })
+      .on('end', () => Promise.all(promises).then(_0 => resolve()));
+  });
 }
 
 /** @private */

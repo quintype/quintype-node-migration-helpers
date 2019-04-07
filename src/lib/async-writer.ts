@@ -79,6 +79,7 @@ export function batchStream<T>(size: number = 1000, mapping: MappingFunction = a
     // but things aren't working as per the spec
     async flush(callback): Promise<void> {
       await emitBatch(this);
+      this.push(null);
       this.emit('end');
       callback();
     }

@@ -19,31 +19,43 @@ function asyncToStream<T>(generator: AsyncIterableIterator<T>): Readable {
   });
 }
 
-/** @private */
-function batchStream<T>(size: number = 1000): Transform {
+export type MappingFunction = (entries: ReadonlyArray<any>) => Promise<ReadonlyArray<any>> | ReadonlyArray<any>;
+
+/**
+ * Batch records in the stream
+ *
+ * @param size The maximum number of records in the batch
+ * @param mapping An optional function to transform the batch before being pushed onto the stream
+ */
+export function batchStream<T>(size: number = 1000, mapping: MappingFunction = x => x): Transform {
   let batch: T[] = [];
   let batchNumber = 1;
 
-  function emitBatch(transform: Transform): void {
-    transform.push({ batchNumber, batch });
-    batchNumber++;
+  async function emitBatch(transform: Transform): Promise<void> {
+    const batchToEmit = batch;
+    const batchNumberToEmit = batchNumber;
     batch = [];
+    batchNumber++;
+    transform.push({
+      batch: await mapping(batchToEmit),
+      batchNumber: batchNumberToEmit
+    });
   }
 
   return new Transform({
     objectMode: true,
 
-    transform(data, _, callback): void {
-      batch = batch.concat(data);
+    async transform(data, _, callback): Promise<void> {
+      batch.push(data);
       if (batch.length >= size) {
-        emitBatch(this);
+        await emitBatch(this);
       }
       callback();
     },
 
-    flush(): void {
+    async flush(): Promise<void> {
       if (batch.length > 0) {
-        emitBatch(this);
+        await emitBatch(this);
       }
       this.push(null);
     }

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/gja/@quintype/migration-helpers/compare/v1.2.0...v1.2.1) (2019-04-07)
+
+
+### Bug Fixes
+
+* Transform correctly returns promises ([d17f247](https://github.com/gja/@quintype/migration-helpers/commit/d17f247))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/gja/@quintype/migration-helpers/compare/v1.1.0...v1.2.0) (2019-04-07)
 

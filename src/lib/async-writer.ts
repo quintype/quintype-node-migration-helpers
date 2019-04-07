@@ -22,7 +22,10 @@ function asyncToStream<T>(generator: AsyncIterableIterator<T>): Readable {
 export type MappingFunction = (entries: ReadonlyArray<any>, batchNumber: number) => Promise<ReadonlyArray<any>>;
 
 /**
- * Batch records in the stream
+ * Batch records in the stream. It will call your transform with a batch, and expect a batch of results to be returned
+ * Downstream from the pipe will see individual items, not a batch.
+ *
+ * You can listen to the 'end' event to figure out when this stream is done
  *
  * ### Example
  * ```ts
@@ -34,8 +37,9 @@ export type MappingFunction = (entries: ReadonlyArray<any>, batchNumber: number)
  * }
  *
  * writeStories(
- *   readStoriesFromDatabase()
+ *   readStoriesFromDatabase(conn)
  *     .pipe(batchStream(100, mapRowToStories))
+ *     .on('end', () => conn.destroy())
  * );
  * ```
  *
@@ -71,11 +75,12 @@ export function batchStream<T>(size: number = 1000, mapping: MappingFunction = a
       callback();
     },
 
+    // FIXME: This is an ugly hack. Ideally, I should not have to emit end manually,
+    // but things aren't working as per the spec
     async flush(callback): Promise<void> {
       await emitBatch(this);
-      this.push(null);
+      this.emit('end');
       callback();
-      this.destroy();
     }
   });
 }
@@ -95,7 +100,7 @@ export function writeToFiles<T>(
     const stream = source instanceof Readable ? source : asyncToStream(source);
     stream
       .pipe(batchStream(batchSize, writeBatchToFile))
-      .on('close', () => resolve())
+      .on('end', () => resolve())
       .on('error', reject);
   });
 

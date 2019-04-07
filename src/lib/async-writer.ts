@@ -71,8 +71,10 @@ export function batchStream<T>(size: number = 1000, mapping: MappingFunction = a
       callback();
     },
 
-    async flush(): Promise<void> {
+    async flush(callback): Promise<void> {
       await emitBatch(this);
+      this.push(null);
+      callback();
       this.destroy();
     }
   });

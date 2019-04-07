@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.4"></a>
+## [1.2.4](https://github.com/gja/@quintype/migration-helpers/compare/v1.2.3...v1.2.4) (2019-04-07)
+
+
+### Bug Fixes
+
+* Accidently deleted a line ([91242ea](https://github.com/gja/@quintype/migration-helpers/commit/91242ea))
+
+
+
 <a name="1.2.3"></a>
 ## [1.2.3](https://github.com/gja/@quintype/migration-helpers/compare/v1.2.2...v1.2.3) (2019-04-07)
 

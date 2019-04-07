@@ -1,6 +1,6 @@
 // tslint:disable:no-expression-statement readonly-array no-if-statement
 import { createWriteStream } from 'fs';
-import { Readable, Transform, Writable } from 'stream';
+import { Readable, Transform } from 'stream';
 import { createGzip } from 'zlib';
 
 /** @private */
@@ -19,27 +19,45 @@ function asyncToStream<T>(generator: AsyncIterableIterator<T>): Readable {
   });
 }
 
-export type MappingFunction = (entries: ReadonlyArray<any>) => Promise<ReadonlyArray<any>> | ReadonlyArray<any>;
+export type MappingFunction = (entries: ReadonlyArray<any>, batchNumber: number) => Promise<ReadonlyArray<any>>;
 
 /**
  * Batch records in the stream
  *
+ * ### Example
+ * ```ts
+ * import { batchStream, Story } from '@quintype/migration-helpers';
+ *
+ * async function mapRowToStories(rows: any, _batchNumber: number): Promise<ReadonlyArray<Story>> {
+ *   const someRelatedData = fetchInfoForStories(rows.map(r => r.storyId));
+ *   return rows.map(r => ({...rowToStory(r), ...someRelatedData(r.storyId)}));
+ * }
+ *
+ * writeStories(
+ *   readStoriesFromDatabase()
+ *     .pipe(batchStream(100, mapRowToStories))
+ * );
+ * ```
+ *
  * @param size The maximum number of records in the batch
  * @param mapping An optional function to transform the batch before being pushed onto the stream
  */
-export function batchStream<T>(size: number = 1000, mapping: MappingFunction = x => x): Transform {
+export function batchStream<T>(size: number = 1000, mapping: MappingFunction = async x => x): Transform {
   let batch: T[] = [];
   let batchNumber = 1;
 
   async function emitBatch(transform: Transform): Promise<void> {
+    if (batch.length === 0) {
+      return;
+    }
+
     const batchToEmit = batch;
     const batchNumberToEmit = batchNumber;
     batch = [];
     batchNumber++;
-    transform.push({
-      batch: await mapping(batchToEmit),
-      batchNumber: batchNumberToEmit
-    });
+    for (const result of await mapping(batchToEmit, batchNumberToEmit)) {
+      transform.push(result);
+    }
   }
 
   return new Transform({
@@ -54,10 +72,8 @@ export function batchStream<T>(size: number = 1000, mapping: MappingFunction = x
     },
 
     async flush(): Promise<void> {
-      if (batch.length > 0) {
-        await emitBatch(this);
-      }
-      this.push(null);
+      await emitBatch(this);
+      this.destroy();
     }
   });
 }
@@ -76,29 +92,24 @@ export function writeToFiles<T>(
   return new Promise((resolve, reject) => {
     const stream = source instanceof Readable ? source : asyncToStream(source);
     stream
-      .pipe(batchStream(batchSize))
-      .pipe(writeBatchToFile(directory, filePrefix))
-      .on('finish', resolve)
+      .pipe(batchStream(batchSize, writeBatchToFile))
+      .on('close', () => resolve())
       .on('error', reject);
   });
-}
 
-/** @private */
-function writeBatchToFile(directory: string, filePrefix: string): Writable {
-  return new Writable({
-    objectMode: true,
-
-    write({ batchNumber, batch }, _, callback): void {
+  function writeBatchToFile(batch: ReadonlyArray<any>, batchNumber: number): Promise<ReadonlyArray<any>> {
+    return new Promise((resolve, reject) => {
       createJSONStream(batch)
         .pipe(createGzip())
         .pipe(createWriteStream(`${directory}/${filePrefix}-${String(batchNumber).padStart(5, '0')}.txt.gz`))
-        .on('finish', callback);
-    }
-  });
+        .on('close', () => resolve([]))
+        .on('error', reject);
+    });
+  }
 }
 
 /** @private */
-function createJSONStream<T>(batch: T[]): Readable {
+function createJSONStream<T>(batch: ReadonlyArray<T>): Readable {
   let numberRead = 0;
   return new Readable({
     read(): void {

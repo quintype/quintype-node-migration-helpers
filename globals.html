@@ -79,6 +79,7 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="globals.html#mappingfunction" class="tsd-kind-icon">Mapping<wbr>Function</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#story" class="tsd-kind-icon">Story</a></li>
 							</ul>
 						</section>
@@ -86,10 +87,9 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-has-type-parameter tsd-is-private tsd-is-not-exported"><a href="globals.html#asynctostream" class="tsd-kind-icon">async<wbr>ToStream</a></li>
-								<li class="tsd-kind-function tsd-has-type-parameter tsd-is-private tsd-is-not-exported"><a href="globals.html#batchstream" class="tsd-kind-icon">batch<wbr>Stream</a></li>
+								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#batchstream" class="tsd-kind-icon">batch<wbr>Stream</a></li>
 								<li class="tsd-kind-function tsd-has-type-parameter tsd-is-private tsd-is-not-exported"><a href="globals.html#createjsonstream" class="tsd-kind-icon">createJSONStream</a></li>
 								<li class="tsd-kind-function tsd-is-private"><a href="globals.html#readfromgzipfile" class="tsd-kind-icon">read<wbr>From<wbr>Gzip<wbr>File</a></li>
-								<li class="tsd-kind-function tsd-is-private tsd-is-not-exported"><a href="globals.html#writebatchtofile" class="tsd-kind-icon">write<wbr>Batch<wbr>ToFile</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#writestories" class="tsd-kind-icon">write<wbr>Stories</a></li>
 								<li class="tsd-kind-function tsd-has-type-parameter tsd-is-private"><a href="globals.html#writetofiles" class="tsd-kind-icon">write<wbr>ToFiles</a></li>
 							</ul>
@@ -100,12 +100,46 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="mappingfunction" class="tsd-anchor"></a>
+					<h3>Mapping<wbr>Function</h3>
+					<div class="tsd-signature tsd-kind-icon">Mapping<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/885914f/src/lib/async-writer.ts#L22">lib/async-writer.ts:22</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>entries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, batchNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>entries: <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+											</li>
+											<li>
+												<h5>batchNumber: <span class="tsd-signature-type">number</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="story" class="tsd-anchor"></a>
 					<h3>Story</h3>
 					<div class="tsd-signature tsd-kind-icon">Story<span class="tsd-signature-symbol">:</span> <a href="interfaces/storymandatoryfields.html" class="tsd-signature-type">StoryMandatoryFields</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/storyheroimagefields.html" class="tsd-signature-type">StoryHeroImageFields</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/storymetadatafields.html" class="tsd-signature-type">StoryMetadataFields</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/storyelements.html" class="tsd-signature-type">StoryElements</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/storybody.html" class="tsd-signature-type">StoryBody</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/8a7e034/src/lib/editor-types.ts#L64">lib/editor-types.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/885914f/src/lib/editor-types.ts#L64">lib/editor-types.ts:64</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -127,7 +161,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/8a7e034/src/lib/async-writer.ts#L7">lib/async-writer.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/885914f/src/lib/async-writer.ts#L7">lib/async-writer.ts:7</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -148,20 +182,38 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter tsd-is-private tsd-is-not-exported">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
 					<a name="batchstream" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> batch<wbr>Stream</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter tsd-is-private tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">batch<wbr>Stream&lt;T&gt;<span class="tsd-signature-symbol">(</span>size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span></li>
+					<h3>batch<wbr>Stream</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">batch<wbr>Stream&lt;T&gt;<span class="tsd-signature-symbol">(</span>size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, mapping<span class="tsd-signature-symbol">?: </span><a href="globals.html#mappingfunction" class="tsd-signature-type">MappingFunction</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/8a7e034/src/lib/async-writer.ts#L23">lib/async-writer.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/885914f/src/lib/async-writer.ts#L49">lib/async-writer.ts:49</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Batch records in the stream. It will call your transform with a batch, and expect a batch of results to be returned
+									Downstream from the pipe will see individual items, not a batch.</p>
+								</div>
+								<p>You can listen to the &#39;end&#39; event to figure out when this stream is done</p>
+								<h3 id="example">Example</h3>
+								<pre><code class="language-ts"><span class="hljs-keyword">import</span> { batchStream, Story } <span class="hljs-keyword">from</span> <span class="hljs-string">'@quintype/migration-helpers'</span>;
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mapRowToStories</span>(<span class="hljs-params">rows: <span class="hljs-built_in">any</span>, _batchNumber: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">Promise</span>&lt;<span class="hljs-title">ReadonlyArray</span>&lt;<span class="hljs-title">Story</span>&gt;&gt; </span>{
+  <span class="hljs-keyword">const</span> someRelatedData = fetchInfoForStories(rows.map(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> r.storyId));
+  <span class="hljs-keyword">return</span> rows.map(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> ({...rowToStory(r), ...someRelatedData(r.storyId)}));
+}
+
+writeStories(
+  readStoriesFromDatabase(conn)
+    .pipe(batchStream(<span class="hljs-number">100</span>, mapRowToStories))
+    .on(<span class="hljs-string">'end'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> conn.destroy())
+);</code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -173,6 +225,15 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> size: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1000</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The maximum number of records in the batch</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> mapping: <a href="globals.html#mappingfunction" class="tsd-signature-type">MappingFunction</a><span class="tsd-signature-symbol"> =&nbsp;async x &#x3D;&gt; x</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An optional function to transform the batch before being pushed onto the stream</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Transform</span></h4>
@@ -183,13 +244,13 @@
 					<a name="createjsonstream" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> createJSONStream</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter tsd-is-private tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">createJSONStream&lt;T&gt;<span class="tsd-signature-symbol">(</span>batch<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Readable</span></li>
+						<li class="tsd-signature tsd-kind-icon">createJSONStream&lt;T&gt;<span class="tsd-signature-symbol">(</span>batch<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Readable</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/8a7e034/src/lib/async-writer.ts#L89">lib/async-writer.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/885914f/src/lib/async-writer.ts#L119">lib/async-writer.ts:119</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -203,7 +264,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>batch: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>batch: <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Readable</span></h4>
@@ -220,7 +281,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/8a7e034/src/test-utils/read-from-file.ts#L6">test-utils/read-from-file.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/885914f/src/test-utils/read-from-file.ts#L6">test-utils/read-from-file.ts:6</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -235,34 +296,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-private tsd-is-not-exported">
-					<a name="writebatchtofile" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> write<wbr>Batch<wbr>ToFile</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-private tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">write<wbr>Batch<wbr>ToFile<span class="tsd-signature-symbol">(</span>directory<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, filePrefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Writable</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/8a7e034/src/lib/async-writer.ts#L75">lib/async-writer.ts:75</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>directory: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>filePrefix: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Writable</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="writestories" class="tsd-anchor"></a>
 					<h3>write<wbr>Stories</h3>
@@ -273,7 +306,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/8a7e034/src/lib/stories-writer.ts#L50">lib/stories-writer.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/885914f/src/lib/stories-writer.ts#L50">lib/stories-writer.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -346,7 +379,7 @@ writeStories(stream.pipe(transformSqlRowToStories));</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/8a7e034/src/lib/async-writer.ts#L60">lib/async-writer.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/885914f/src/lib/async-writer.ts#L95">lib/async-writer.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -412,12 +445,15 @@ writeStories(stream.pipe(transformSqlRowToStories));</code></pre>
 						<a href="interfaces/storymetadatafields.html" class="tsd-kind-icon">Story<wbr>Metadata<wbr>Fields</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#mappingfunction" class="tsd-kind-icon">Mapping<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#story" class="tsd-kind-icon">Story</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-private tsd-is-not-exported">
 						<a href="globals.html#asynctostream" class="tsd-kind-icon">async<wbr>ToStream</a>
 					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-private tsd-is-not-exported">
+					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="globals.html#batchstream" class="tsd-kind-icon">batch<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-private tsd-is-not-exported">
@@ -425,9 +461,6 @@ writeStories(stream.pipe(transformSqlRowToStories));</code></pre>
 					</li>
 					<li class=" tsd-kind-function tsd-is-private">
 						<a href="globals.html#readfromgzipfile" class="tsd-kind-icon">read<wbr>From<wbr>Gzip<wbr>File</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-private tsd-is-not-exported">
-						<a href="globals.html#writebatchtofile" class="tsd-kind-icon">write<wbr>Batch<wbr>ToFile</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#writestories" class="tsd-kind-icon">write<wbr>Stories</a>

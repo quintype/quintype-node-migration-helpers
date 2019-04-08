@@ -49,13 +49,13 @@ interface StoryMetadataFields {
   readonly summary: string;
 }
 
-/** Use StoryBody to send a blob of HTML to be parsed later. Also @see StoryElements */
+/** Use StoryBody to send a blob of HTML to be parsed later. Also {@link StoryElements} */
 interface StoryBody {
   /** An HTML blob of the story. Should look like `"<p>Para1</p><p>Para2</p>""` */
   readonly body: string;
 }
 
-/** Use StoryElements for a more fine grained control on the created elements. Also @see StoryBody */
+/** Use StoryElements for a more fine grained control on the created elements. Also see {@link StoryBody} */
 interface StoryElements {
   readonly 'story-elements': ReadonlyArray<string>;
 }

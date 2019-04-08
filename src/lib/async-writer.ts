@@ -25,8 +25,6 @@ export type MappingFunction = (entries: ReadonlyArray<any>, batchNumber: number)
  * Batch records in the stream. It will call your transform with a batch, and expect a batch of results to be returned
  * Downstream from the pipe will see individual items, not a batch.
  *
- * You can listen to the 'end' event to figure out when this stream is done
- *
  * ### Example
  * ```ts
  * import { batchStream, Story } from '@quintype/migration-helpers';
@@ -76,8 +74,6 @@ export function batchStream<T>(size: number = 1000, mapping: MappingFunction = a
       callback();
     },
 
-    // FIXME: This is an ugly hack. Ideally, I should not have to emit end manually,
-    // but things aren't working as per the spec
     async flush(callback): Promise<void> {
       await emitBatch(this);
       callback();

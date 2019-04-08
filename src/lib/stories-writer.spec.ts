@@ -1,5 +1,4 @@
 // tslint:disable:no-expression-statement
-import test from 'ava';
 import { dir } from 'tmp-promise';
 
 import { readFromGzipFile } from '../test-utils/read-from-file';
@@ -18,21 +17,23 @@ const commonStoryFields = {
   tags: []
 };
 
-test('writeStories writes stories into files', async t => {
-  async function* generate(): AsyncIterableIterator<Story> {
-    for (let i = 0; i < 10; i++) {
-      yield { headline: `Story Number ${i}`, 'external-id': `story-${i}`, slug: `story-${i}`, ...commonStoryFields };
+describe('writeStories', () => {
+  it('writes stories into files', async () => {
+    async function* generate(): AsyncIterableIterator<Story> {
+      for (let i = 0; i < 10; i++) {
+        yield { headline: `Story Number ${i}`, 'external-id': `story-${i}`, slug: `story-${i}`, ...commonStoryFields };
+      }
     }
-  }
-  const { path } = await dir({ unsafeCleanup: true });
-  await writeStories(generate(), 'export', {
-    directory: path
+    const { path } = await dir({ unsafeCleanup: true });
+    await writeStories(generate(), 'export', {
+      directory: path
+    });
+    const fileContents = await readFromGzipFile(`${path}/story-export-00001.txt.gz`);
+    const stories = fileContents
+      .trim()
+      .split('\n')
+      .map(story => JSON.parse(story));
+    expect(stories[0].headline).toBe('Story Number 0');
+    expect(stories[1].headline).toBe('Story Number 1');
   });
-  const fileContents = await readFromGzipFile(`${path}/story-export-00001.txt.gz`);
-  const stories = fileContents
-    .trim()
-    .split('\n')
-    .map(story => JSON.parse(story));
-  t.is('Story Number 0', stories[0].headline);
-  t.is('Story Number 1', stories[1].headline);
 });

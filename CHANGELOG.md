@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/gja/@quintype/migration-helpers/compare/v1.3.0...v1.4.0) (2019-04-08)
+
+
+### Features
+
+* Allow you to pass an author stream to writeStories ([#2](https://github.com/gja/[@quintype](https://github.com/quintype)/migration-helpers/issues/2)) ([e4e30a5](https://github.com/gja/@quintype/migration-helpers/commit/e4e30a5))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/gja/@quintype/migration-helpers/compare/v1.2.5...v1.3.0) (2019-04-08)
 

@@ -4,12 +4,15 @@ import { Readable, Transform } from 'stream';
 import { createGzip } from 'zlib';
 
 /** @private */
-function asyncToStream<T>(generator: AsyncIterableIterator<T>): Readable {
+export function asyncToStream<T>(source: AsyncIterableIterator<T> | Readable): Readable {
+  if (source instanceof Readable) {
+    return source;
+  }
   return new Readable({
     objectMode: true,
 
     async read(): Promise<void> {
-      const { done, value } = await generator.next();
+      const { done, value } = await source.next();
       if (done) {
         this.push(null);
       } else {
@@ -93,7 +96,7 @@ export function writeToFiles<T>(
   { batchSize, directory = '.', filePrefix = 'c' }: GenerateToFileOptions
 ): Promise<void> {
   return new Promise((resolve, reject) => {
-    const stream = source instanceof Readable ? source : asyncToStream(source);
+    const stream = asyncToStream(source);
     stream
       .pipe(batchStream(batchSize, writeBatchToFile))
       .pipe(createWriteStream(`${directory}/${filePrefix}.log`))

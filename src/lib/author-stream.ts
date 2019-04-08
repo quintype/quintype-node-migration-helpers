@@ -29,7 +29,7 @@ type AuthorStream = Writable & { finishedWriting?: Promise<void> };
  */
 export function createAuthorStream(
   mapping: (externalIds: ReadonlyArray<string>) => Promise<ReadonlyArray<Author>>,
-  opts: GenerateToFileOptions
+  opts: GenerateToFileOptions = {}
 ): AuthorStream {
   const seenExternalIds: Set<string> = new Set();
   const transform: AuthorStream = new Transform({

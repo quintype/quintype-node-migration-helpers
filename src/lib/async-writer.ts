@@ -65,6 +65,7 @@ export function batchStream<T>(size: number = 1000, mapping: MappingFunction = a
   }
 
   return new Transform({
+    autoDestroy: true,
     objectMode: true,
 
     async transform(data, _, callback): Promise<void> {
@@ -79,9 +80,7 @@ export function batchStream<T>(size: number = 1000, mapping: MappingFunction = a
     // but things aren't working as per the spec
     async flush(callback): Promise<void> {
       await emitBatch(this);
-      this.push(null);
       callback();
-      this.emit('end');
     }
   });
 }
@@ -101,16 +100,18 @@ export function writeToFiles<T>(
     const stream = source instanceof Readable ? source : asyncToStream(source);
     stream
       .pipe(batchStream(batchSize, writeBatchToFile))
-      .on('end', () => resolve())
+      .pipe(createWriteStream(`${directory}/${filePrefix}.log`))
+      .on('close', () => resolve())
       .on('error', reject);
   });
 
   function writeBatchToFile(batch: ReadonlyArray<any>, batchNumber: number): Promise<ReadonlyArray<any>> {
+    const outputFile = `${directory}/${filePrefix}-${String(batchNumber).padStart(5, '0')}.txt.gz`;
     return new Promise((resolve, reject) => {
       createJSONStream(batch)
         .pipe(createGzip())
-        .pipe(createWriteStream(`${directory}/${filePrefix}-${String(batchNumber).padStart(5, '0')}.txt.gz`))
-        .on('close', () => resolve([]))
+        .pipe(createWriteStream(outputFile))
+        .on('close', () => resolve([`Wrote ${outputFile}\n`]))
         .on('error', reject);
     });
   }

@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@quintype/migration-helpers</title>
+	<title>AuthorStreamOptions | @quintype/migration-helpers</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">@quintype/migration-helpers</a>
+					<a href="../index.html" class="title">@quintype/migration-helpers</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -51,93 +51,132 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="authorstreamoptions.html">AuthorStreamOptions</a>
 				</li>
 			</ul>
-			<h1> @quintype/migration-helpers</h1>
+			<h1>Interface AuthorStreamOptions</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<p>Helper Functions for Migrations to the Quintype platform</p>
-				<h2 id="the-goal">The Goal</h2>
-				<p>This library is to be used to help easily migrate publishers. This library exposes utility functions that will automatically create .txt.gz files with the content that you expose. Once this is created, these files can be uploaded to S3 and imported by the Quintype Team.</p>
-				<p>Most functions accept an async generator function to push content. There are also types exposed so that you can ensure you are exporting all mandatory fields, and avoiding typos on optional ones.</p>
-				<p>If you are looking for a good place to start, please see <a href="./globals.html#writestories">writeStories</a></p>
-			</div>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">AuthorStreamOptions</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="authorstreamoptions.html#authorstream" class="tsd-kind-icon">author<wbr>Stream</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="authorstream" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> author<wbr>Stream</h3>
+					<div class="tsd-signature tsd-kind-icon">author<wbr>Stream<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Writable</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/36306e2/src/lib/editor-types.ts#L69">lib/editor-types.ts:69</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/author.html" class="tsd-kind-icon">Author</a>
+						<a href="author.html" class="tsd-kind-icon">Author</a>
 					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="authorstreamoptions.html" class="tsd-kind-icon">Author<wbr>Stream<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="authorstreamoptions.html#authorstream" class="tsd-kind-icon">author<wbr>Stream</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/authorstreamoptions.html" class="tsd-kind-icon">Author<wbr>Stream<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/generatetofileoptions.html" class="tsd-kind-icon">Generate<wbr>ToFile<wbr>Options</a>
+						<a href="generatetofileoptions.html" class="tsd-kind-icon">Generate<wbr>ToFile<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/storybody.html" class="tsd-kind-icon">Story<wbr>Body</a>
+						<a href="storybody.html" class="tsd-kind-icon">Story<wbr>Body</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/storyelements.html" class="tsd-kind-icon">Story<wbr>Elements</a>
+						<a href="storyelements.html" class="tsd-kind-icon">Story<wbr>Elements</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/storyheroimagefields.html" class="tsd-kind-icon">Story<wbr>Hero<wbr>Image<wbr>Fields</a>
+						<a href="storyheroimagefields.html" class="tsd-kind-icon">Story<wbr>Hero<wbr>Image<wbr>Fields</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/storymandatoryfields.html" class="tsd-kind-icon">Story<wbr>Mandatory<wbr>Fields</a>
+						<a href="storymandatoryfields.html" class="tsd-kind-icon">Story<wbr>Mandatory<wbr>Fields</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/storymetadatafields.html" class="tsd-kind-icon">Story<wbr>Metadata<wbr>Fields</a>
+						<a href="storymetadatafields.html" class="tsd-kind-icon">Story<wbr>Metadata<wbr>Fields</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-is-not-exported">
-						<a href="globals.html#authorstream" class="tsd-kind-icon">Author<wbr>Stream</a>
+						<a href="../globals.html#authorstream" class="tsd-kind-icon">Author<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#mappingfunction" class="tsd-kind-icon">Mapping<wbr>Function</a>
+						<a href="../globals.html#mappingfunction" class="tsd-kind-icon">Mapping<wbr>Function</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#story" class="tsd-kind-icon">Story</a>
+						<a href="../globals.html#story" class="tsd-kind-icon">Story</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-private">
-						<a href="globals.html#asynctostream" class="tsd-kind-icon">async<wbr>ToStream</a>
+						<a href="../globals.html#asynctostream" class="tsd-kind-icon">async<wbr>ToStream</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#batchstream" class="tsd-kind-icon">batch<wbr>Stream</a>
+						<a href="../globals.html#batchstream" class="tsd-kind-icon">batch<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#createauthorstream" class="tsd-kind-icon">create<wbr>Author<wbr>Stream</a>
+						<a href="../globals.html#createauthorstream" class="tsd-kind-icon">create<wbr>Author<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-private tsd-is-not-exported">
-						<a href="globals.html#createjsonstream" class="tsd-kind-icon">createJSONStream</a>
+						<a href="../globals.html#createjsonstream" class="tsd-kind-icon">createJSONStream</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#endauthorstream" class="tsd-kind-icon">end<wbr>Author<wbr>Stream</a>
+						<a href="../globals.html#endauthorstream" class="tsd-kind-icon">end<wbr>Author<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-private">
-						<a href="globals.html#readfromgzipfile" class="tsd-kind-icon">read<wbr>From<wbr>Gzip<wbr>File</a>
+						<a href="../globals.html#readfromgzipfile" class="tsd-kind-icon">read<wbr>From<wbr>Gzip<wbr>File</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-private tsd-is-not-exported">
-						<a href="globals.html#teeauthorstostream" class="tsd-kind-icon">tee<wbr>Authors<wbr>ToStream</a>
+						<a href="../globals.html#teeauthorstostream" class="tsd-kind-icon">tee<wbr>Authors<wbr>ToStream</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#writestories" class="tsd-kind-icon">write<wbr>Stories</a>
+						<a href="../globals.html#writestories" class="tsd-kind-icon">write<wbr>Stories</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-private">
-						<a href="globals.html#writetofiles" class="tsd-kind-icon">write<wbr>ToFiles</a>
+						<a href="../globals.html#writetofiles" class="tsd-kind-icon">write<wbr>ToFiles</a>
 					</li>
 				</ul>
 			</nav>
@@ -207,7 +246,7 @@
 	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

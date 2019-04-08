@@ -10,7 +10,7 @@ import { AuthorStreamOptions, Story } from './editor-types';
  *
  * ### Example
  * ```ts
- * import { Story, writeStories } from '@quintype/migration-helpers';
+ * import { batchStream, Story, writeStories } from '@quintype/migration-helpers';
  *
  * async function* readStoriesFromDatabase(): AsyncIterableIterator<Story> {
  *  const txn = createDbTxn();
@@ -24,7 +24,7 @@ import { AuthorStreamOptions, Story } from './editor-types';
  * writeStories(readStoriesFromDatabase(), 'interviews')
  * ```
  *
- * You may also use a stream to produce stories
+ * You may also use a stream to produce stories. Use {@link batchStream} to efficiently load stories.
  *
  * ```ts
  * import { Story, writeStories } from '@quintype/migration-helpers';
@@ -32,17 +32,12 @@ import { AuthorStreamOptions, Story } from './editor-types';
  *
  * const stream = conn.query("select * from stories").stream();
  *
- * const transformSqlRowToStories = new Transform({
- *   objectMode: true,
+ * async function convertRowsToStories(rows: ReadonlyArray<any>): Promise<ReadonlyArray<Story>> {
+ *   const relatedData = await loadSomeData(rows.map(row => row.storyId));
+ *   return row.map(row => rowToStory(row, relatedData));
+ * }
  *
- *   transform(rows, _, callback) {
- *     for(const story of rows) {
- *       this.push(rowToStory(story))
- *     }
- *   }
- * })
- *
- * writeStories(stream.pipe(transformSqlRowToStories));
+ * writeStories(stream.pipe(batchStream(100, convertRowsToStories)));
  * ```
  *
  * @param stream An Async Generator or Readable which yields stories

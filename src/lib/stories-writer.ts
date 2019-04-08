@@ -1,10 +1,12 @@
-import { Readable } from 'stream';
+import { Readable, Transform, Writable } from 'stream';
 
-import { GenerateToFileOptions, writeToFiles } from './async-writer';
-import { Story } from './editor-types';
+import { asyncToStream, GenerateToFileOptions, writeToFiles } from './async-writer';
+import { AuthorStreamOptions, Story } from './editor-types';
 
 /**
  * Takes a generator of stories, and writes the stories into .txt.gz files. Each file will have 1000 stories.
+ *
+ * You can provide a stream for the authors to be written to. See {@link createAuthorStream} for an example on how to use this.
  *
  * ### Example
  * ```ts
@@ -43,10 +45,28 @@ import { Story } from './editor-types';
  * @param opts Control some fine grained tuning
  */
 export function writeStories(
-  stream: AsyncIterableIterator<Story> | Readable,
+  generator: AsyncIterableIterator<Story> | Readable,
   source: string = 'export',
-  opts: GenerateToFileOptions = {}
+  opts: GenerateToFileOptions & AuthorStreamOptions = {}
 ): Promise<void> {
   const filePrefix = opts.filePrefix ? `story-${source}-${opts.filePrefix}` : `story-${source}`;
+  const stream = asyncToStream(generator).pipe(teeAuthorsToStream(opts.authorStream));
   return writeToFiles(stream, { filePrefix, ...opts });
+}
+
+/** @private */
+function teeAuthorsToStream(authorStream?: Writable): Transform {
+  return new Transform({
+    objectMode: true,
+    transform(story: Story, _, callback): void {
+      // tslint:disable:no-if-statement no-expression-statement
+      if (authorStream) {
+        for (const author of story.authors) {
+          authorStream.write(author['external-id']);
+        }
+      }
+      callback(null, story);
+      // tslint:enable:no-if-statement no-expression-statement
+    }
+  });
 }

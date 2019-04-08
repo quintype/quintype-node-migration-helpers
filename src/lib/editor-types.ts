@@ -1,3 +1,5 @@
+import { Writable } from 'stream';
+
 interface StoryMandatoryFields {
   /** The id of this content in the external system */
   readonly 'external-id': string;
@@ -62,3 +64,12 @@ interface StoryElements {
 
 /** Represents a Story in the Editor. Please See Individual Parts of the Story. */
 export type Story = StoryMandatoryFields & StoryHeroImageFields & StoryMetadataFields & (StoryElements | StoryBody);
+
+export interface AuthorStreamOptions {
+  readonly authorStream?: Writable;
+}
+
+export interface Author {
+  readonly 'external-id': string;
+  readonly name: string;
+}

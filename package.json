@@ -65,6 +65,7 @@
     "opn-cli": "^4.0.0",
     "prettier": "^1.15.2",
     "standard-version": "^4.4.0",
+    "stream-to-array": "^2.3.0",
     "tmp": "^0.1.0",
     "tmp-promise": "^1.0.5",
     "trash-cli": "^1.4.0",

@@ -6,7 +6,7 @@ import { AuthorStreamOptions, Story } from './editor-types';
 /**
  * Takes a generator of stories, and writes the stories into .txt.gz files. Each file will have 1000 stories.
  *
- * You can provide a stream for the authors to be written to. @see createAuthorsStream for an example on how to use this.
+ * You can provide a stream for the authors to be written to. See {@link createAuthorStream} for an example on how to use this.
  *
  * ### Example
  * ```ts

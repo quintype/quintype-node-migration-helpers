@@ -68,3 +68,8 @@ export type Story = StoryMandatoryFields & StoryHeroImageFields & StoryMetadataF
 export interface AuthorStreamOptions {
   readonly authorStream?: Writable;
 }
+
+export interface Author {
+  readonly 'external-id': string;
+  readonly name: string;
+}

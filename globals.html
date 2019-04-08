@@ -105,7 +105,7 @@
 					<div class="tsd-signature tsd-kind-icon">Mapping<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/3dc3f66/src/lib/async-writer.ts#L22">lib/async-writer.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/ad2ead7/src/lib/async-writer.ts#L22">lib/async-writer.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -139,7 +139,7 @@
 					<div class="tsd-signature tsd-kind-icon">Story<span class="tsd-signature-symbol">:</span> <a href="interfaces/storymandatoryfields.html" class="tsd-signature-type">StoryMandatoryFields</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/storyheroimagefields.html" class="tsd-signature-type">StoryHeroImageFields</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/storymetadatafields.html" class="tsd-signature-type">StoryMetadataFields</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/storyelements.html" class="tsd-signature-type">StoryElements</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/storybody.html" class="tsd-signature-type">StoryBody</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/3dc3f66/src/lib/editor-types.ts#L64">lib/editor-types.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/ad2ead7/src/lib/editor-types.ts#L64">lib/editor-types.ts:64</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -161,7 +161,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/3dc3f66/src/lib/async-writer.ts#L7">lib/async-writer.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/ad2ead7/src/lib/async-writer.ts#L7">lib/async-writer.ts:7</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -192,7 +192,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/3dc3f66/src/lib/async-writer.ts#L47">lib/async-writer.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/ad2ead7/src/lib/async-writer.ts#L47">lib/async-writer.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -249,7 +249,7 @@ writeStories(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/3dc3f66/src/lib/async-writer.ts#L117">lib/async-writer.ts:117</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/ad2ead7/src/lib/async-writer.ts#L117">lib/async-writer.ts:117</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,7 +280,7 @@ writeStories(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/3dc3f66/src/test-utils/read-from-file.ts#L6">test-utils/read-from-file.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/ad2ead7/src/test-utils/read-from-file.ts#L6">test-utils/read-from-file.ts:6</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -305,7 +305,7 @@ writeStories(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/3dc3f66/src/lib/stories-writer.ts#L50">lib/stories-writer.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/ad2ead7/src/lib/stories-writer.ts#L45">lib/stories-writer.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -313,7 +313,7 @@ writeStories(
 									<p>Takes a generator of stories, and writes the stories into .txt.gz files. Each file will have 1000 stories.</p>
 								</div>
 								<h3 id="example">Example</h3>
-								<pre><code class="language-ts"><span class="hljs-keyword">import</span> { Story, writeStories } <span class="hljs-keyword">from</span> <span class="hljs-string">'@quintype/migration-helpers'</span>;
+								<pre><code class="language-ts"><span class="hljs-keyword">import</span> { batchStream, Story, writeStories } <span class="hljs-keyword">from</span> <span class="hljs-string">'@quintype/migration-helpers'</span>;
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">readStoriesFromDatabase</span>(<span class="hljs-params"></span>): <span class="hljs-title">AsyncIterableIterator</span>&lt;<span class="hljs-title">Story</span>&gt; </span>{
  <span class="hljs-keyword">const</span> txn = createDbTxn();
@@ -325,23 +325,18 @@ writeStories(
 }
 
 writeStories(readStoriesFromDatabase(), <span class="hljs-string">'interviews'</span>)</code></pre>
-								<p>You may also use a stream to produce stories</p>
+								<p>You may also use a stream to produce stories. Use <a href="globals.html#batchstream">batchStream</a> to efficiently load stories.</p>
 								<pre><code class="language-ts"><span class="hljs-keyword">import</span> { Story, writeStories } <span class="hljs-keyword">from</span> <span class="hljs-string">'@quintype/migration-helpers'</span>;
 <span class="hljs-keyword">import</span> { Transform } <span class="hljs-keyword">from</span> <span class="hljs-string">'stream'</span>
 
 <span class="hljs-keyword">const</span> stream = conn.query(<span class="hljs-string">"select * from stories"</span>).stream();
 
-<span class="hljs-keyword">const</span> transformSqlRowToStories = <span class="hljs-keyword">new</span> Transform({
-  objectMode: <span class="hljs-literal">true</span>,
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">convertRowsToStories</span>(<span class="hljs-params">rows: ReadonlyArray&lt;<span class="hljs-built_in">any</span>&gt;</span>): <span class="hljs-title">Promise</span>&lt;<span class="hljs-title">ReadonlyArray</span>&lt;<span class="hljs-title">Story</span>&gt;&gt; </span>{
+  <span class="hljs-keyword">const</span> relatedData = <span class="hljs-keyword">await</span> loadSomeData(rows.map(<span class="hljs-function"><span class="hljs-params">row</span> =&gt;</span> row.storyId));
+  <span class="hljs-keyword">return</span> row.map(<span class="hljs-function"><span class="hljs-params">row</span> =&gt;</span> rowToStory(row, relatedData));
+}
 
-  transform(rows, _, callback) {
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> story of rows) {
-      <span class="hljs-keyword">this</span>.push(rowToStory(story))
-    }
-  }
-})
-
-writeStories(stream.pipe(transformSqlRowToStories));</code></pre>
+writeStories(stream.pipe(batchStream(<span class="hljs-number">100</span>, convertRowsToStories)));</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -378,7 +373,7 @@ writeStories(stream.pipe(transformSqlRowToStories));</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/3dc3f66/src/lib/async-writer.ts#L91">lib/async-writer.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/ad2ead7/src/lib/async-writer.ts#L91">lib/async-writer.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

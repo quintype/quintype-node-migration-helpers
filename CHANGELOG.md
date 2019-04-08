@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/gja/@quintype/migration-helpers/compare/v1.2.5...v1.3.0) (2019-04-08)
+
+
+### Features
+
+* Removed hacks from batchStream, by forcing writing to a log file ([7b8e2c4](https://github.com/gja/@quintype/migration-helpers/commit/7b8e2c4))
+
+
+
 <a name="1.2.5"></a>
 ## [1.2.5](https://github.com/gja/@quintype/migration-helpers/compare/v1.2.4...v1.2.5) (2019-04-07)
 

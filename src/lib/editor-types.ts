@@ -73,3 +73,9 @@ export interface Author {
   readonly 'external-id': string;
   readonly name: string;
 }
+
+export interface Section {
+  readonly 'external-id': string;
+  readonly name: string;
+  readonly 'display-name': string;
+}

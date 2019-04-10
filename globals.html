@@ -69,8 +69,10 @@
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface"><a href="interfaces/author.html" class="tsd-kind-icon">Author</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/authorstreamoptions.html" class="tsd-kind-icon">Author<wbr>Stream<wbr>Options</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/externalid.html" class="tsd-kind-icon">External<wbr>Id</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/generatetofileoptions.html" class="tsd-kind-icon">Generate<wbr>ToFile<wbr>Options</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/metadatastreamoptions.html" class="tsd-kind-icon">Metadata<wbr>Stream<wbr>Options</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/section.html" class="tsd-kind-icon">Section</a></li>
 								<li class="tsd-kind-interface tsd-is-not-exported"><a href="interfaces/storybody.html" class="tsd-kind-icon">Story<wbr>Body</a></li>
 								<li class="tsd-kind-interface tsd-is-not-exported"><a href="interfaces/storyelements.html" class="tsd-kind-icon">Story<wbr>Elements</a></li>
 								<li class="tsd-kind-interface tsd-is-not-exported"><a href="interfaces/storyheroimagefields.html" class="tsd-kind-icon">Story<wbr>Hero<wbr>Image<wbr>Fields</a></li>
@@ -81,9 +83,16 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-is-not-exported"><a href="globals.html#authorstream" class="tsd-kind-icon">Author<wbr>Stream</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#mappingfunction" class="tsd-kind-icon">Mapping<wbr>Function</a></li>
+								<li class="tsd-kind-type-alias tsd-is-private"><a href="globals.html#metadatastream" class="tsd-kind-icon">Metadata<wbr>Stream</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#story" class="tsd-kind-icon">Story</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#endauthorstream" class="tsd-kind-icon">end<wbr>Author<wbr>Stream</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#endsectionstream" class="tsd-kind-icon">end<wbr>Section<wbr>Stream</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -93,9 +102,11 @@
 								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#batchstream" class="tsd-kind-icon">batch<wbr>Stream</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#createauthorstream" class="tsd-kind-icon">create<wbr>Author<wbr>Stream</a></li>
 								<li class="tsd-kind-function tsd-has-type-parameter tsd-is-private tsd-is-not-exported"><a href="globals.html#createjsonstream" class="tsd-kind-icon">createJSONStream</a></li>
-								<li class="tsd-kind-function"><a href="globals.html#endauthorstream" class="tsd-kind-icon">end<wbr>Author<wbr>Stream</a></li>
+								<li class="tsd-kind-function tsd-has-type-parameter tsd-is-private"><a href="globals.html#createmetadatastream" class="tsd-kind-icon">create<wbr>Metadata<wbr>Stream</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#createsectionstream" class="tsd-kind-icon">create<wbr>Section<wbr>Stream</a></li>
+								<li class="tsd-kind-function tsd-is-private"><a href="globals.html#endmetadatastream" class="tsd-kind-icon">end<wbr>Metadata<wbr>Stream</a></li>
 								<li class="tsd-kind-function tsd-is-private"><a href="globals.html#readfromgzipfile" class="tsd-kind-icon">read<wbr>From<wbr>Gzip<wbr>File</a></li>
-								<li class="tsd-kind-function tsd-is-private tsd-is-not-exported"><a href="globals.html#teeauthorstostream" class="tsd-kind-icon">tee<wbr>Authors<wbr>ToStream</a></li>
+								<li class="tsd-kind-function tsd-is-private tsd-is-not-exported"><a href="globals.html#teestorytometadatastream" class="tsd-kind-icon">tee<wbr>Story<wbr>ToMetadata<wbr>Stream</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#writestories" class="tsd-kind-icon">write<wbr>Stories</a></li>
 								<li class="tsd-kind-function tsd-has-type-parameter tsd-is-private"><a href="globals.html#writetofiles" class="tsd-kind-icon">write<wbr>ToFiles</a></li>
 							</ul>
@@ -105,23 +116,13 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-is-not-exported">
-					<a name="authorstream" class="tsd-anchor"></a>
-					<h3>Author<wbr>Stream</h3>
-					<div class="tsd-signature tsd-kind-icon">Author<wbr>Stream<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Writable</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/6238b93/src/lib/author-stream.ts#L7">lib/author-stream.ts:7</a></li>
-						</ul>
-					</aside>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="mappingfunction" class="tsd-anchor"></a>
 					<h3>Mapping<wbr>Function</h3>
 					<div class="tsd-signature tsd-kind-icon">Mapping<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/6238b93/src/lib/async-writer.ts#L25">lib/async-writer.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/async-writer.ts#L25">lib/async-writer.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -149,18 +150,63 @@
 						</ul>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-is-private">
+					<a name="metadatastream" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> Metadata<wbr>Stream</h3>
+					<div class="tsd-signature tsd-kind-icon">Metadata<wbr>Stream<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Writable</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/metadata-stream.ts#L7">lib/metadata-stream.ts:7</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="story" class="tsd-anchor"></a>
 					<h3>Story</h3>
 					<div class="tsd-signature tsd-kind-icon">Story<span class="tsd-signature-symbol">:</span> <a href="interfaces/storymandatoryfields.html" class="tsd-signature-type">StoryMandatoryFields</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/storyheroimagefields.html" class="tsd-signature-type">StoryHeroImageFields</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/storymetadatafields.html" class="tsd-signature-type">StoryMetadataFields</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/storyelements.html" class="tsd-signature-type">StoryElements</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/storybody.html" class="tsd-signature-type">StoryBody</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/6238b93/src/lib/editor-types.ts#L66">lib/editor-types.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/editor-types.ts#L66">lib/editor-types.ts:66</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Represents a Story in the Editor. Please See Individual Parts of the Story.</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="endauthorstream" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> end<wbr>Author<wbr>Stream</h3>
+					<div class="tsd-signature tsd-kind-icon">end<wbr>Author<wbr>Stream<span class="tsd-signature-symbol">:</span> <a href="globals.html#endmetadatastream" class="tsd-signature-type">endMetadataStream</a><span class="tsd-signature-symbol"> =&nbsp;endMetadataStream</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/author-stream.ts#L36">lib/author-stream.ts:36</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Async function that Closes the author stream. See <a href="globals.html#createauthorstream">createAuthorStream</a> for usage</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="endsectionstream" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> end<wbr>Section<wbr>Stream</h3>
+					<div class="tsd-signature tsd-kind-icon">end<wbr>Section<wbr>Stream<span class="tsd-signature-symbol">:</span> <a href="globals.html#endmetadatastream" class="tsd-signature-type">endMetadataStream</a><span class="tsd-signature-symbol"> =&nbsp;endMetadataStream</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/section-stream.ts#L36">lib/section-stream.ts:36</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Async function that Closes the section stream. See <a href="globals.html#createsectionstream">createSectionStream</a> for usage</p>
 						</div>
 					</div>
 				</section>
@@ -177,7 +223,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/6238b93/src/lib/async-writer.ts#L7">lib/async-writer.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/async-writer.ts#L7">lib/async-writer.ts:7</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -208,7 +254,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/6238b93/src/lib/async-writer.ts#L50">lib/async-writer.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/async-writer.ts#L50">lib/async-writer.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -259,13 +305,13 @@ writeStories(
 					<a name="createauthorstream" class="tsd-anchor"></a>
 					<h3>create<wbr>Author<wbr>Stream</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Author<wbr>Stream<span class="tsd-signature-symbol">(</span>mapping<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, opts<span class="tsd-signature-symbol">?: </span><a href="interfaces/generatetofileoptions.html" class="tsd-signature-type">GenerateToFileOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#authorstream" class="tsd-signature-type">AuthorStream</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Author<wbr>Stream<span class="tsd-signature-symbol">(</span>mapping<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, opts<span class="tsd-signature-symbol">?: </span><a href="interfaces/generatetofileoptions.html" class="tsd-signature-type">GenerateToFileOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#metadatastream" class="tsd-signature-type">MetadataStream</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/6238b93/src/lib/author-stream.ts#L30">lib/author-stream.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/author-stream.ts#L25">lib/author-stream.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -315,7 +361,7 @@ writeStories(
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="globals.html#authorstream" class="tsd-signature-type">AuthorStream</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="globals.html#metadatastream" class="tsd-signature-type">MetadataStream</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -329,7 +375,7 @@ writeStories(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/6238b93/src/lib/async-writer.ts#L120">lib/async-writer.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/async-writer.ts#L120">lib/async-writer.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -350,28 +396,141 @@ writeStories(
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="endauthorstream" class="tsd-anchor"></a>
-					<h3>end<wbr>Author<wbr>Stream</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">end<wbr>Author<wbr>Stream<span class="tsd-signature-symbol">(</span>authorStream<span class="tsd-signature-symbol">: </span><a href="globals.html#authorstream" class="tsd-signature-type">AuthorStream</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter tsd-is-private">
+					<a name="createmetadatastream" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Metadata<wbr>Stream</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Metadata<wbr>Stream&lt;T&gt;<span class="tsd-signature-symbol">(</span>mapping<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, opts<span class="tsd-signature-symbol">?: </span><a href="interfaces/generatetofileoptions.html" class="tsd-signature-type">GenerateToFileOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#metadatastream" class="tsd-signature-type">MetadataStream</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/6238b93/src/lib/author-stream.ts#L62">lib/author-stream.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/metadata-stream.ts#L11">lib/metadata-stream.ts:11</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>mapping: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>externalIds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>externalIds: <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="interfaces/generatetofileoptions.html" class="tsd-signature-type">GenerateToFileOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="globals.html#metadatastream" class="tsd-signature-type">MetadataStream</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="createsectionstream" class="tsd-anchor"></a>
+					<h3>create<wbr>Section<wbr>Stream</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Section<wbr>Stream<span class="tsd-signature-symbol">(</span>mapping<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, opts<span class="tsd-signature-symbol">?: </span><a href="interfaces/generatetofileoptions.html" class="tsd-signature-type">GenerateToFileOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#metadatastream" class="tsd-signature-type">MetadataStream</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/section-stream.ts#L25">lib/section-stream.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Async function that Closes the author stream. See <a href="globals.html#createauthorstream">createAuthorStream</a> for usage</p>
+									<p>Creates a writeable stream that can be used to pipe sections to. Sections that are piped to this
+										stream are automatically writen to sections-*.txt.gz. The stream created with this function can
+									be passed to <a href="globals.html#writestories">writeStories</a></p>
 								</div>
+								<h3 id="example">Example</h3>
+								<pre><code class="language-ts"><span class="hljs-keyword">import</span> { Section, createSectionStream, endSectionStream, writeStories } <span class="hljs-keyword">from</span> <span class="hljs-string">"@quintype/migration-helpers"</span>;
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> sectionStream = createSectionStream(mapSectionIdToSection, opts);
+  <span class="hljs-keyword">await</span> writeStories(getStoriesFromDB(), {...opts, sectionStream});
+  <span class="hljs-keyword">await</span> endSectionStream(sectionStream);
+}</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>authorStream: <a href="globals.html#authorstream" class="tsd-signature-type">AuthorStream</a></h5>
+									<h5>mapping: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An async function that maps from the external-ids given and the <a href="interfaces/section.html">Section</a></p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>externalIds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/section.html" class="tsd-signature-type">Section</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>externalIds: <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/section.html" class="tsd-signature-type">Section</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="interfaces/generatetofileoptions.html" class="tsd-signature-type">GenerateToFileOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="globals.html#metadatastream" class="tsd-signature-type">MetadataStream</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-private">
+					<a name="endmetadatastream" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> end<wbr>Metadata<wbr>Stream</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">end<wbr>Metadata<wbr>Stream<span class="tsd-signature-symbol">(</span>sectionStream<span class="tsd-signature-symbol">: </span><a href="globals.html#metadatastream" class="tsd-signature-type">MetadataStream</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/metadata-stream.ts#L40">lib/metadata-stream.ts:40</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sectionStream: <a href="globals.html#metadatastream" class="tsd-signature-type">MetadataStream</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -388,7 +547,7 @@ writeStories(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/6238b93/src/test-utils/read-from-file.ts#L6">test-utils/read-from-file.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/test-utils/read-from-file.ts#L6">test-utils/read-from-file.ts:6</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -404,16 +563,16 @@ writeStories(
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-private tsd-is-not-exported">
-					<a name="teeauthorstostream" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> tee<wbr>Authors<wbr>ToStream</h3>
+					<a name="teestorytometadatastream" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> tee<wbr>Story<wbr>ToMetadata<wbr>Stream</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-is-private tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">tee<wbr>Authors<wbr>ToStream<span class="tsd-signature-symbol">(</span>authorStream<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Writable</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span></li>
+						<li class="tsd-signature tsd-kind-icon">tee<wbr>Story<wbr>ToMetadata<wbr>Stream<span class="tsd-signature-symbol">(</span>f<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, stream<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Writable</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/6238b93/src/lib/stories-writer.ts#L58">lib/stories-writer.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/stories-writer.ts#L61">lib/stories-writer.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -421,7 +580,28 @@ writeStories(
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> authorStream: <span class="tsd-signature-type">Writable</span></h5>
+									<h5>f: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>story<span class="tsd-signature-symbol">: </span><a href="globals.html#story" class="tsd-signature-type">Story</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/externalid.html" class="tsd-signature-type">ExternalId</a><span class="tsd-signature-symbol">&gt;</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>story: <a href="globals.html#story" class="tsd-signature-type">Story</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/externalid.html" class="tsd-signature-type">ExternalId</a><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> stream: <span class="tsd-signature-type">Writable</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Transform</span></h4>
@@ -432,20 +612,21 @@ writeStories(
 					<a name="writestories" class="tsd-anchor"></a>
 					<h3>write<wbr>Stories</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">write<wbr>Stories<span class="tsd-signature-symbol">(</span>generator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AsyncIterableIterator</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#story" class="tsd-signature-type">Story</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Readable</span>, source<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">?: </span><a href="interfaces/generatetofileoptions.html" class="tsd-signature-type">GenerateToFileOptions</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/authorstreamoptions.html" class="tsd-signature-type">AuthorStreamOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">write<wbr>Stories<span class="tsd-signature-symbol">(</span>generator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AsyncIterableIterator</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#story" class="tsd-signature-type">Story</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Readable</span>, source<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">?: </span><a href="interfaces/generatetofileoptions.html" class="tsd-signature-type">GenerateToFileOptions</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/metadatastreamoptions.html" class="tsd-signature-type">MetadataStreamOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/6238b93/src/lib/stories-writer.ts#L47">lib/stories-writer.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/stories-writer.ts#L48">lib/stories-writer.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Takes a generator of stories, and writes the stories into .txt.gz files. Each file will have 1000 stories.</p>
 								</div>
-								<p>You can provide a stream for the authors to be written to. See <a href="globals.html#createauthorstream">createAuthorStream</a> for an example on how to use this.</p>
+								<p>You can provide a streams for various metadata to be written to.
+								See <a href="globals.html#createauthorstream">createAuthorStream</a> and <a href="globals.html#createsectionstream">createSectionStream</a> for examples</p>
 								<h3 id="example">Example</h3>
 								<pre><code class="language-ts"><span class="hljs-keyword">import</span> { batchStream, Story, writeStories } <span class="hljs-keyword">from</span> <span class="hljs-string">'@quintype/migration-helpers'</span>;
 
@@ -484,7 +665,7 @@ writeStories(stream.pipe(batchStream(<span class="hljs-number">100</span>, conve
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="interfaces/generatetofileoptions.html" class="tsd-signature-type">GenerateToFileOptions</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/authorstreamoptions.html" class="tsd-signature-type">AuthorStreamOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="interfaces/generatetofileoptions.html" class="tsd-signature-type">GenerateToFileOptions</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/metadatastreamoptions.html" class="tsd-signature-type">MetadataStreamOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Control some fine grained tuning</p>
 									</div>
@@ -504,7 +685,7 @@ writeStories(stream.pipe(batchStream(<span class="hljs-number">100</span>, conve
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/6238b93/src/lib/async-writer.ts#L94">lib/async-writer.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/5fbc7ef/src/lib/async-writer.ts#L94">lib/async-writer.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -555,10 +736,16 @@ writeStories(stream.pipe(batchStream(<span class="hljs-number">100</span>, conve
 						<a href="interfaces/author.html" class="tsd-kind-icon">Author</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/authorstreamoptions.html" class="tsd-kind-icon">Author<wbr>Stream<wbr>Options</a>
+						<a href="interfaces/externalid.html" class="tsd-kind-icon">External<wbr>Id</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/generatetofileoptions.html" class="tsd-kind-icon">Generate<wbr>ToFile<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/metadatastreamoptions.html" class="tsd-kind-icon">Metadata<wbr>Stream<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/section.html" class="tsd-kind-icon">Section</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="interfaces/storybody.html" class="tsd-kind-icon">Story<wbr>Body</a>
@@ -575,14 +762,20 @@ writeStories(stream.pipe(batchStream(<span class="hljs-number">100</span>, conve
 					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="interfaces/storymetadatafields.html" class="tsd-kind-icon">Story<wbr>Metadata<wbr>Fields</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-is-not-exported">
-						<a href="globals.html#authorstream" class="tsd-kind-icon">Author<wbr>Stream</a>
-					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#mappingfunction" class="tsd-kind-icon">Mapping<wbr>Function</a>
 					</li>
+					<li class=" tsd-kind-type-alias tsd-is-private">
+						<a href="globals.html#metadatastream" class="tsd-kind-icon">Metadata<wbr>Stream</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#story" class="tsd-kind-icon">Story</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#endauthorstream" class="tsd-kind-icon">end<wbr>Author<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#endsectionstream" class="tsd-kind-icon">end<wbr>Section<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-private">
 						<a href="globals.html#asynctostream" class="tsd-kind-icon">async<wbr>ToStream</a>
@@ -596,14 +789,20 @@ writeStories(stream.pipe(batchStream(<span class="hljs-number">100</span>, conve
 					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-private tsd-is-not-exported">
 						<a href="globals.html#createjsonstream" class="tsd-kind-icon">createJSONStream</a>
 					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-private">
+						<a href="globals.html#createmetadatastream" class="tsd-kind-icon">create<wbr>Metadata<wbr>Stream</a>
+					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#endauthorstream" class="tsd-kind-icon">end<wbr>Author<wbr>Stream</a>
+						<a href="globals.html#createsectionstream" class="tsd-kind-icon">create<wbr>Section<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-private">
+						<a href="globals.html#endmetadatastream" class="tsd-kind-icon">end<wbr>Metadata<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-private">
 						<a href="globals.html#readfromgzipfile" class="tsd-kind-icon">read<wbr>From<wbr>Gzip<wbr>File</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-private tsd-is-not-exported">
-						<a href="globals.html#teeauthorstostream" class="tsd-kind-icon">tee<wbr>Authors<wbr>ToStream</a>
+						<a href="globals.html#teestorytometadatastream" class="tsd-kind-icon">tee<wbr>Story<wbr>ToMetadata<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#writestories" class="tsd-kind-icon">write<wbr>Stories</a>

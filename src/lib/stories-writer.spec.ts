@@ -41,26 +41,51 @@ describe('writeStories', () => {
     expect(stories[1].headline).toBe('Story Number 1');
   });
 
-  it('writes the authors into a separate stream', async () => {
-    async function* generate(): AsyncIterableIterator<Story> {
-      for (let i = 0; i < 5; i++) {
-        yield {
-          ...commonStoryFields,
-          authors: [{ 'external-id': `author-${i}`, name: 'Author' }],
-          'external-id': `story-${i}`,
-          headline: `Story Number ${i}`,
-          slug: `story-${i}`
-        };
+  describe('Writing out metadata', () => {
+    it('writes the authors into a separate stream', async () => {
+      async function* generate(): AsyncIterableIterator<Story> {
+        for (let i = 0; i < 5; i++) {
+          yield {
+            ...commonStoryFields,
+            authors: [{ 'external-id': `author-${i}`, name: 'Author' }],
+            'external-id': `story-${i}`,
+            headline: `Story Number ${i}`,
+            slug: `story-${i}`
+          };
+        }
       }
-    }
-    const stubAuthorStream = new PassThrough({ objectMode: true });
-    const { path } = await dir({ unsafeCleanup: true });
-    await writeStories(generate(), 'export', {
-      authorStream: stubAuthorStream,
-      directory: path
+      const stubAuthorStream = new PassThrough({ objectMode: true });
+      const { path } = await dir({ unsafeCleanup: true });
+      await writeStories(generate(), 'export', {
+        authorStream: stubAuthorStream,
+        directory: path
+      });
+      await new Promise(resolve => stubAuthorStream.end(resolve));
+      const authorArray = await streamToArray(stubAuthorStream);
+      expect(authorArray).toEqual(['author-0', 'author-1', 'author-2', 'author-3', 'author-4']);
     });
-    await new Promise(resolve => stubAuthorStream.end(resolve));
-    const authorArray = await streamToArray(stubAuthorStream);
-    expect(authorArray).toEqual(['author-0', 'author-1', 'author-2', 'author-3', 'author-4']);
+
+    it('writes the sections into a separate stream', async () => {
+      async function* generate(): AsyncIterableIterator<Story> {
+        for (let i = 0; i < 5; i++) {
+          yield {
+            ...commonStoryFields,
+            'external-id': `story-${i}`,
+            headline: `Story Number ${i}`,
+            sections: [{ 'external-id': `section-${i}`, name: 'Section' }],
+            slug: `story-${i}`
+          };
+        }
+      }
+      const stubSectionStream = new PassThrough({ objectMode: true });
+      const { path } = await dir({ unsafeCleanup: true });
+      await writeStories(generate(), 'export', {
+        directory: path,
+        sectionStream: stubSectionStream
+      });
+      await new Promise(resolve => stubSectionStream.end(resolve));
+      const authorArray = await streamToArray(stubSectionStream);
+      expect(authorArray).toEqual(['section-0', 'section-1', 'section-2', 'section-3', 'section-4']);
+    });
   });
 });

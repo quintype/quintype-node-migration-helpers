@@ -29,6 +29,13 @@ interface StoryHeroImageFields {
   readonly 'hero-image-caption'?: string;
 }
 
+interface Metadata {
+  /** All story attributes that belong to the story. Each key is a string and value is an array of strings */
+  readonly 'story-attributes'?: {
+    readonly [key: string]: ReadonlyArray<string>;
+  };
+}
+
 interface StoryMetadataFields {
   /** The list of authors (in order) for this content */
   readonly authors: ReadonlyArray<{
@@ -49,6 +56,9 @@ interface StoryMetadataFields {
 
   /** 140 character social share message */
   readonly summary: string;
+
+  /** Story Metadata */
+  readonly metadata?: Metadata;
 }
 
 /** Use StoryBody to send a blob of HTML to be parsed later. Also {@link StoryElements} */

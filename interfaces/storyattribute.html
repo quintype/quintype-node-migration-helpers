@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ExternalId | @quintype/migration-helpers</title>
+	<title>StoryAttribute | @quintype/migration-helpers</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="externalid.html">ExternalId</a>
+					<a href="storyattribute.html">StoryAttribute</a>
 				</li>
 			</ul>
-			<h1>Interface ExternalId</h1>
+			<h1>Interface StoryAttribute</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ExternalId</span>
+						<span class="target">StoryAttribute</span>
 					</li>
 				</ul>
 			</section>
@@ -79,7 +79,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="externalid.html#external_id" class="tsd-kind-icon">external-<wbr>id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storyattribute.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storyattribute.html#values" class="tsd-kind-icon">values</a></li>
 							</ul>
 						</section>
 					</div>
@@ -88,12 +89,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="external_id" class="tsd-anchor"></a>
-					<h3>external-<wbr>id</h3>
-					<div class="tsd-signature tsd-kind-icon">external-<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/f725109/src/lib/editor-types.ts#L85">lib/editor-types.ts:85</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/f725109/src/lib/editor-types.ts#L102">lib/editor-types.ts:102</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="values" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> values</h3>
+					<div class="tsd-signature tsd-kind-icon">values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/f725109/src/lib/editor-types.ts#L103">lib/editor-types.ts:103</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -112,18 +123,9 @@
 					<li class=" tsd-kind-interface">
 						<a href="author.html" class="tsd-kind-icon">Author</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
+					<li class=" tsd-kind-interface">
 						<a href="externalid.html" class="tsd-kind-icon">External<wbr>Id</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="externalid.html#external_id" class="tsd-kind-icon">external-<wbr>id</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="generatetofileoptions.html" class="tsd-kind-icon">Generate<wbr>ToFile<wbr>Options</a>
 					</li>
@@ -136,9 +138,21 @@
 					<li class=" tsd-kind-interface">
 						<a href="section.html" class="tsd-kind-icon">Section</a>
 					</li>
-					<li class=" tsd-kind-interface">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
 						<a href="storyattribute.html" class="tsd-kind-icon">Story<wbr>Attribute</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="storyattribute.html#name" class="tsd-kind-icon">name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="storyattribute.html#values" class="tsd-kind-icon">values</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="storybody.html" class="tsd-kind-icon">Story<wbr>Body</a>
 					</li>

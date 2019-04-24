@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/gja/@quintype/migration-helpers/compare/v1.5.1...v1.6.0) (2019-04-24)
+
+
+### Features
+
+* Support a StoryAttributes stream ([#4](https://github.com/gja/[@quintype](https://github.com/quintype)/migration-helpers/issues/4)) ([40b7df3](https://github.com/gja/@quintype/migration-helpers/commit/40b7df3))
+
+
+
 <a name="1.5.1"></a>
 ## [1.5.1](https://github.com/gja/@quintype/migration-helpers/compare/v1.5.0...v1.5.1) (2019-04-17)
 

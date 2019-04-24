@@ -61,8 +61,13 @@ describe('writeStories', () => {
         directory: path
       });
       await new Promise(resolve => stubAuthorStream.end(resolve));
-      const authorArray = await streamToArray(stubAuthorStream);
-      expect(authorArray).toEqual(['author-0', 'author-1', 'author-2', 'author-3', 'author-4']);
+      expect(await streamToArray(stubAuthorStream)).toEqual([
+        'author-0',
+        'author-1',
+        'author-2',
+        'author-3',
+        'author-4'
+      ]);
     });
 
     it('writes the sections into a separate stream', async () => {
@@ -84,8 +89,40 @@ describe('writeStories', () => {
         sectionStream: stubSectionStream
       });
       await new Promise(resolve => stubSectionStream.end(resolve));
-      const authorArray = await streamToArray(stubSectionStream);
-      expect(authorArray).toEqual(['section-0', 'section-1', 'section-2', 'section-3', 'section-4']);
+      expect(await streamToArray(stubSectionStream)).toEqual([
+        'section-0',
+        'section-1',
+        'section-2',
+        'section-3',
+        'section-4'
+      ]);
+    });
+
+    it('writes out story attributes into a separate stream', async () => {
+      async function* generate(): AsyncIterableIterator<Story> {
+        for (let i = 0; i < 5; i++) {
+          yield {
+            ...commonStoryFields,
+            'external-id': `story-${i}`,
+            headline: `Story Number ${i}`,
+            metadata: {
+              'story-attributes': {
+                [`foo-${i}`]: ['bar']
+              }
+            },
+            sections: [],
+            slug: `story-${i}`
+          };
+        }
+      }
+      const stubStoryAttributeStream = new PassThrough({ objectMode: true });
+      const { path } = await dir({ unsafeCleanup: true });
+      await writeStories(generate(), 'export', {
+        directory: path,
+        storyAttributeStream: stubStoryAttributeStream
+      });
+      await new Promise(resolve => stubStoryAttributeStream.end(resolve));
+      expect(await streamToArray(stubStoryAttributeStream)).toEqual(['foo-0', 'foo-1', 'foo-2', 'foo-3', 'foo-4']);
     });
   });
 });

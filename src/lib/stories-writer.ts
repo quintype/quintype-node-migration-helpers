@@ -53,7 +53,17 @@ export function writeStories(
   const filePrefix = opts.filePrefix ? `story-${source}-${opts.filePrefix}` : `story-${source}`;
   const stream = asyncToStream(generator)
     .pipe(teeStoryToMetadataStream(story => story.authors, opts.authorStream))
-    .pipe(teeStoryToMetadataStream(story => story.sections, opts.sectionStream));
+    .pipe(teeStoryToMetadataStream(story => story.sections, opts.sectionStream))
+    .pipe(
+      teeStoryToMetadataStream(
+        story =>
+          (story.metadata && story.metadata['story-attributes']
+            ? Object.keys(story.metadata['story-attributes'])
+            : []
+          ).map(i => ({ 'external-id': i })),
+        opts.storyAttributeStream
+      )
+    );
   return writeToFiles(stream, { filePrefix, ...opts });
 }
 

@@ -3,13 +3,13 @@ import { dir } from 'tmp-promise';
 
 import { readFromGzipFile } from '../test-utils/read-from-file';
 import { createAuthorStream, endAuthorStream } from './author-stream';
-import { Author } from './editor-types';
+import { Author, ExternalId } from './editor-types';
 
 describe('createAuthorStream', () => {
-  async function mapExternalIdToAuthors(externalIds: ReadonlyArray<string>): Promise<ReadonlyArray<Author>> {
-    return externalIds.map(id => ({
-      'external-id': id,
-      name: `Author ${id}`
+  async function mapExternalIdToAuthors(externalIds: ReadonlyArray<ExternalId>): Promise<ReadonlyArray<Author>> {
+    return externalIds.map(x => ({
+      'external-id': x['external-id'],
+      name: `Author ${x['external-id']}`
     }));
   }
 
@@ -18,8 +18,8 @@ describe('createAuthorStream', () => {
     const authorStream = createAuthorStream(mapExternalIdToAuthors, {
       directory: path
     });
-    authorStream.write('author-0');
-    authorStream.write('author-1');
+    authorStream.write({ 'external-id': 'author-0' });
+    authorStream.write({ 'external-id': 'author-1' });
     await endAuthorStream(authorStream);
     const fileContents = await readFromGzipFile(`${path}/authors-00001.txt.gz`);
     const authors = fileContents
@@ -35,12 +35,12 @@ describe('createAuthorStream', () => {
     const authorStream = createAuthorStream(mapExternalIdToAuthors, {
       directory: path
     });
-    authorStream.write('author-0');
-    authorStream.write('author-0');
-    authorStream.write('author-0');
-    authorStream.write('author-0');
-    authorStream.write('author-0');
-    authorStream.write('author-0');
+    authorStream.write({ 'external-id': 'author-0' });
+    authorStream.write({ 'external-id': 'author-0' });
+    authorStream.write({ 'external-id': 'author-0' });
+    authorStream.write({ 'external-id': 'author-0' });
+    authorStream.write({ 'external-id': 'author-0' });
+    authorStream.write({ 'external-id': 'author-0' });
     await endAuthorStream(authorStream);
     const fileContents = await readFromGzipFile(`${path}/authors-00001.txt.gz`);
     const authors = fileContents

@@ -61,13 +61,9 @@ describe('writeStories', () => {
         directory: path
       });
       await new Promise(resolve => stubAuthorStream.end(resolve));
-      expect(await streamToArray(stubAuthorStream)).toEqual([
-        'author-0',
-        'author-1',
-        'author-2',
-        'author-3',
-        'author-4'
-      ]);
+      expect(await streamToArray(stubAuthorStream)).toEqual(
+        [0, 1, 2, 3, 4].map(i => ({ name: `Author`, 'external-id': `author-${i}` }))
+      );
     });
 
     it('writes the sections into a separate stream', async () => {
@@ -89,13 +85,9 @@ describe('writeStories', () => {
         sectionStream: stubSectionStream
       });
       await new Promise(resolve => stubSectionStream.end(resolve));
-      expect(await streamToArray(stubSectionStream)).toEqual([
-        'section-0',
-        'section-1',
-        'section-2',
-        'section-3',
-        'section-4'
-      ]);
+      expect(await streamToArray(stubSectionStream)).toEqual(
+        [0, 1, 2, 3, 4].map(i => ({ name: `Section`, 'external-id': `section-${i}` }))
+      );
     });
 
     it('writes out story attributes into a separate stream', async () => {
@@ -122,7 +114,9 @@ describe('writeStories', () => {
         storyAttributeStream: stubStoryAttributeStream
       });
       await new Promise(resolve => stubStoryAttributeStream.end(resolve));
-      expect(await streamToArray(stubStoryAttributeStream)).toEqual(['foo-0', 'foo-1', 'foo-2', 'foo-3', 'foo-4']);
+      expect(await streamToArray(stubStoryAttributeStream)).toEqual(
+        [0, 1, 2, 3, 4].map(i => ({ name: `foo-${i}`, 'external-id': `foo-${i}` }))
+      );
     });
   });
 });

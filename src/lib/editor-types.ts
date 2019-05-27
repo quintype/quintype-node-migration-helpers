@@ -97,7 +97,9 @@ export interface Section extends ExternalId {
   readonly name: string;
   readonly 'display-name'?: string;
   readonly slug?: string;
-  readonly children?: Section;
+
+  /** @deprecated */
+  readonly children?: ReadonlyArray<Section>;
 }
 
 export interface StoryAttribute extends ExternalId {

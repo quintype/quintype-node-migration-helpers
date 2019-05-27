@@ -1,5 +1,5 @@
 import { GenerateToFileOptions } from './async-writer';
-import { Section } from './editor-types';
+import { Section, ExternalId } from './editor-types';
 import { createMetadataStream, endMetadataStream, MetadataStream } from './metadata-stream';
 
 /**
@@ -23,7 +23,7 @@ import { createMetadataStream, endMetadataStream, MetadataStream } from './metad
  * @param opts
  */
 export function createSectionStream(
-  mapping: (externalIds: ReadonlyArray<string>) => Promise<ReadonlyArray<Section>>,
+  mapping: (externalIds: ReadonlyArray<ExternalId>) => Promise<ReadonlyArray<Section>>,
   opts: GenerateToFileOptions = {}
 ): MetadataStream {
   return createMetadataStream(mapping, {

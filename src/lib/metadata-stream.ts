@@ -1,6 +1,7 @@
 import { Transform, Writable } from 'stream';
 
 import { batchStream, GenerateToFileOptions, writeToFiles } from './async-writer';
+import { Section, Author, ExternalId } from './editor-types';
 
 // tslint:disable:readonly-keyword
 /** @private */
@@ -9,7 +10,7 @@ export type MetadataStream = Writable & { finishedWriting?: Promise<void> };
 
 /** @private */
 export function createMetadataStream<T>(
-  mapping: (externalIds: ReadonlyArray<string>) => Promise<ReadonlyArray<T>>,
+  mapping: (externalIds: ReadonlyArray<ExternalId>) => Promise<ReadonlyArray<T>>,
   opts: GenerateToFileOptions = {}
 ): MetadataStream {
   const seenExternalIds: Set<string> = new Set();
@@ -17,12 +18,12 @@ export function createMetadataStream<T>(
     objectMode: true,
 
     // tslint:disable:no-if-statement no-expression-statement
-    transform(externalId, _, callback): void {
-      if (seenExternalIds.has(externalId)) {
+    transform(object:Section|Author, _, callback): void {
+      if (seenExternalIds.has(object['external-id'])) {
         callback();
       } else {
-        seenExternalIds.add(externalId);
-        callback(null, externalId);
+        seenExternalIds.add(object['external-id']);
+        callback(null, object);
       }
     }
     // tslint:enable:no-if-statement no-expression-statement

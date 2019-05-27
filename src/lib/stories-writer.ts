@@ -60,7 +60,7 @@ export function writeStories(
           (story.metadata && story.metadata['story-attributes']
             ? Object.keys(story.metadata['story-attributes'])
             : []
-          ).map(i => ({ 'external-id': i })),
+          ).map(i => ({ 'external-id': i, name: i })),
         opts.storyAttributeStream
       )
     );
@@ -75,7 +75,7 @@ function teeStoryToMetadataStream(f: (story: Story) => ReadonlyArray<ExternalId>
       // tslint:disable:no-if-statement no-expression-statement
       if (stream) {
         for (const entity of f(story)) {
-          stream.write(entity['external-id']);
+          stream.write(entity);
         }
       }
       callback(null, story);

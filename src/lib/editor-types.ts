@@ -85,20 +85,22 @@ export interface ExternalId {
   readonly 'external-id': string;
 }
 
-export interface Author {
-  readonly 'external-id': string;
+export interface Author extends ExternalId{
   readonly name: string;
   readonly slug?: string;
+  readonly email?: string;
+  readonly username?: string;
+  readonly 'avatar-url'?: string;
 }
 
-export interface Section {
-  readonly 'external-id': string;
+export interface Section extends ExternalId{
   readonly name: string;
-  readonly 'display-name': string;
+  readonly 'display-name'?: string;
   readonly slug?: string;
+  readonly children?: Section;
 }
 
-export interface StoryAttribute {
+export interface StoryAttribute extends ExternalId {
   readonly name: string;
   readonly values?: ReadonlyArray<string>;
 }

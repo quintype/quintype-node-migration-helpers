@@ -1,5 +1,5 @@
 import { GenerateToFileOptions } from './async-writer';
-import { Section, ExternalId } from './editor-types';
+import { ExternalId, Section } from './editor-types';
 import { createMetadataStream, endMetadataStream, MetadataStream } from './metadata-stream';
 
 /**

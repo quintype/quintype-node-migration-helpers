@@ -2,15 +2,15 @@
 import { dir } from 'tmp-promise';
 
 import { readFromGzipFile } from '../test-utils/read-from-file';
-import { Section, ExternalId } from './editor-types';
+import { ExternalId, Section } from './editor-types';
 import { createSectionStream, endSectionStream } from './section-stream';
 
 describe('createSectionStream', () => {
   async function mapExternalIdToSections(externalIds: ReadonlyArray<ExternalId>): Promise<ReadonlyArray<Section>> {
     return externalIds.map(x => ({
-      'display-name': `Section ${x["external-id"]}`,
-      'external-id': x["external-id"],
-      name: `Section ${x["external-id"]}`
+      'display-name': `Section ${x['external-id']}`,
+      'external-id': x['external-id'],
+      name: `Section ${x['external-id']}`
     }));
   }
 
@@ -19,8 +19,8 @@ describe('createSectionStream', () => {
     const sectionStream = createSectionStream(mapExternalIdToSections, {
       directory: path
     });
-    sectionStream.write({'external-id':'section-0'});
-    sectionStream.write({'external-id':'section-'});
+    sectionStream.write({ 'external-id': 'section-0' });
+    sectionStream.write({ 'external-id': 'section-1' });
     await endSectionStream(sectionStream);
     const fileContents = await readFromGzipFile(`${path}/sections-00001.txt.gz`);
     const sections = fileContents
@@ -36,12 +36,12 @@ describe('createSectionStream', () => {
     const sectionStream = createSectionStream(mapExternalIdToSections, {
       directory: path
     });
-    sectionStream.write('section-0');
-    sectionStream.write('section-0');
-    sectionStream.write('section-0');
-    sectionStream.write('section-0');
-    sectionStream.write('section-0');
-    sectionStream.write('section-0');
+    sectionStream.write({ 'external-id': 'section-0' });
+    sectionStream.write({ 'external-id': 'section-0' });
+    sectionStream.write({ 'external-id': 'section-0' });
+    sectionStream.write({ 'external-id': 'section-0' });
+    sectionStream.write({ 'external-id': 'section-0' });
+    sectionStream.write({ 'external-id': 'section-0' });
     await endSectionStream(sectionStream);
     const fileContents = await readFromGzipFile(`${path}/sections-00001.txt.gz`);
     const sections = fileContents

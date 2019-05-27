@@ -1,7 +1,7 @@
 import { Transform, Writable } from 'stream';
 
 import { batchStream, GenerateToFileOptions, writeToFiles } from './async-writer';
-import { Section, Author, ExternalId } from './editor-types';
+import { ExternalId } from './editor-types';
 
 // tslint:disable:readonly-keyword
 /** @private */
@@ -18,7 +18,7 @@ export function createMetadataStream<T>(
     objectMode: true,
 
     // tslint:disable:no-if-statement no-expression-statement
-    transform(object:Section|Author, _, callback): void {
+    transform(object: ExternalId, _, callback): void {
       if (seenExternalIds.has(object['external-id'])) {
         callback();
       } else {

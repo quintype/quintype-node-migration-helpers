@@ -85,7 +85,7 @@ export interface ExternalId {
   readonly 'external-id': string;
 }
 
-export interface Author extends ExternalId{
+export interface Author extends ExternalId {
   readonly name: string;
   readonly slug?: string;
   readonly email?: string;
@@ -93,7 +93,7 @@ export interface Author extends ExternalId{
   readonly 'avatar-url'?: string;
 }
 
-export interface Section extends ExternalId{
+export interface Section extends ExternalId {
   readonly name: string;
   readonly 'display-name'?: string;
   readonly slug?: string;

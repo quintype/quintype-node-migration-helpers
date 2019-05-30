@@ -59,6 +59,8 @@ interface StoryMetadataFields {
 
   /** Story Metadata */
   readonly metadata?: Metadata;
+
+  readonly seo?: { readonly [key: string]: string | ReadonlyArray<string> };
 }
 
 /** Use StoryBody to send a blob of HTML to be parsed later. Also {@link StoryElements} */
@@ -98,8 +100,7 @@ export interface Section extends ExternalId {
   readonly 'display-name'?: string;
   readonly slug?: string;
 
-  /** @deprecated */
-  readonly children?: ReadonlyArray<Section>;
+  readonly parent?: Section;
 }
 
 export interface StoryAttribute extends ExternalId {

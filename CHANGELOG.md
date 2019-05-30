@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.8.0"></a>
+# [1.8.0](https://github.com/gja/@quintype/migration-helpers/compare/v1.7.0...v1.8.0) (2019-05-30)
+
+
+### Features
+
+* Supporting section.parent and story.seo ([87c17f6](https://github.com/gja/@quintype/migration-helpers/commit/87c17f6))
+
+
+
 <a name="1.7.0"></a>
 # [1.7.0](https://github.com/gja/@quintype/migration-helpers/compare/v1.6.0...v1.7.0) (2019-05-27)
 

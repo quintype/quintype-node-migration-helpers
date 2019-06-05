@@ -9,7 +9,14 @@ describe('createStoryAttributeStream', () => {
   async function mapExternalIdToStoryAttributes(
     attributes: ReadonlyArray<ExternalId>
   ): Promise<ReadonlyArray<StoryAttribute>> {
-    return attributes.map(attribute => ({ 'external-id': attribute['external-id'], name: attribute['external-id'] }));
+    return attributes.map(attribute => ({
+      'data-type': 'multi-valued-strings',
+      'display-name': attribute['external-id'],
+      'external-id': attribute['external-id'],
+      'is-mandatory': false,
+      name: attribute['external-id'],
+      values: []
+    }));
   }
 
   it('writes storyAttributes to the stream', async () => {

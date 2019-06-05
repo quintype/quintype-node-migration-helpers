@@ -105,5 +105,8 @@ export interface Section extends ExternalId {
 
 export interface StoryAttribute extends ExternalId {
   readonly name: string;
-  readonly values?: ReadonlyArray<string>;
+  readonly values: ReadonlyArray<string>;
+  readonly 'display-name': string;
+  readonly 'data-type': 'multi-valued-strings';
+  readonly 'is-mandatory': boolean;
 }

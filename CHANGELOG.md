@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.0"></a>
+# [1.9.0](https://github.com/gja/@quintype/migration-helpers/compare/v1.8.0...v1.9.0) (2019-06-05)
+
+
+### Features
+
+* Making the story attributes types much more strict ([865f4a3](https://github.com/gja/@quintype/migration-helpers/commit/865f4a3))
+
+
+
 <a name="1.8.0"></a>
 # [1.8.0](https://github.com/gja/@quintype/migration-helpers/compare/v1.7.0...v1.8.0) (2019-05-30)
 

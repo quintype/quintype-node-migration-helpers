@@ -9,7 +9,8 @@ describe('createAuthorStream', () => {
   async function mapExternalIdToAuthors(externalIds: ReadonlyArray<ExternalId>): Promise<ReadonlyArray<Author>> {
     return externalIds.map(x => ({
       'external-id': x['external-id'],
-      name: `Author ${x['external-id']}`
+      name: `Author ${x['external-id']}`,
+      username: x['external-id']
     }));
   }
 

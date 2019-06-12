@@ -51,11 +51,7 @@ interface StoryMetadataFields {
   readonly tags: ReadonlyArray<{ readonly name: string }>;
 
   /** List of sections or categories that this story belongs to */
-  readonly sections: ReadonlyArray<{
-    /** The id of the section or category in the source system */
-    readonly 'external-id': string;
-    readonly name: string;
-  }>;
+  readonly sections: ReadonlyArray<Section>;
 
   /** 140 character social share message */
   readonly summary: string;

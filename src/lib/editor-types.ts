@@ -74,14 +74,14 @@ interface StoryBody {
 
 /** Use StoryElement to send individual story elements to the editor */
 interface StoryElement {
-  readonly title: "";
-  readonly description: "";
-  readonly type: "text" | "image" | "file" | "jsembed";
+  readonly title: '';
+  readonly description: '';
+  readonly type: 'text' | 'image' | 'file' | 'jsembed';
   readonly subtype: string;
   readonly metadata: object;
-// tslint:disable-next-line: no-mixed-interface
+  // tslint:disable-next-line: no-mixed-interface
   readonly [key: string]: string | object;
-};
+}
 
 /** Use StoryElements for a more fine grained control on the created elements. Also see {@link StoryBody} */
 interface StoryElements {

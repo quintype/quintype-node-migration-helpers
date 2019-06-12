@@ -94,7 +94,7 @@ export interface Author extends ExternalId {
   readonly name: string;
   readonly slug?: string;
   readonly email?: string;
-  readonly username: string;
+  readonly username?: string;
   readonly bio?: string;
   readonly 'avatar-url'?: string;
 }

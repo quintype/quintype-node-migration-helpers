@@ -78,9 +78,9 @@ interface StoryElement {
   readonly description: '';
   readonly type: 'text' | 'image' | 'file' | 'jsembed';
   readonly subtype: string;
-  readonly metadata: object;
+  readonly metadata?: object;
   // tslint:disable-next-line: no-mixed-interface
-  readonly [key: string]: string | object;
+  readonly [key: string]: string | object | undefined;
 }
 
 /** Use StoryElements for a more fine grained control on the created elements. Also see {@link StoryBody} */

@@ -21,6 +21,9 @@ interface StoryMandatoryFields {
 
   /** The type of the story. Use `'text'` for a normal story */
   readonly 'story-template': string;
+
+  /** Optional Subheadline */
+  readonly subheadline?: string;
 }
 
 interface StoryHeroImageFields {

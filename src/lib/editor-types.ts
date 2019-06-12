@@ -72,9 +72,20 @@ interface StoryBody {
   readonly body: string;
 }
 
+/** Use StoryElement to send individual story elements to the editor */
+interface StoryElement {
+  readonly title: "";
+  readonly description: "";
+  readonly type: "text" | "image" | "file" | "jsembed";
+  readonly subtype: string;
+  readonly metadata: object;
+// tslint:disable-next-line: no-mixed-interface
+  readonly [key: string]: string | object;
+};
+
 /** Use StoryElements for a more fine grained control on the created elements. Also see {@link StoryBody} */
 interface StoryElements {
-  readonly 'story-elements': ReadonlyArray<string>;
+  readonly 'story-elements': ReadonlyArray<StoryElement>;
 }
 
 /** Represents a Story in the Editor. Please See Individual Parts of the Story. */

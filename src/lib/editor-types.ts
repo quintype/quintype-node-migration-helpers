@@ -121,3 +121,9 @@ export interface StoryAttribute extends ExternalId {
   readonly 'data-type': 'multi-valued-strings';
   readonly 'is-mandatory': boolean;
 }
+
+export interface Entity extends ExternalId {
+  readonly name: string;
+  readonly type: string;
+  readonly url?: string;
+}

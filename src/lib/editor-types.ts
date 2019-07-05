@@ -69,10 +69,10 @@ interface StoryBody {
 }
 
 /** Use StoryElement to send individual story elements to the editor */
-interface StoryElement {
+export interface StoryElement {
   readonly title: '';
   readonly description: '';
-  readonly type: 'text' | 'image' | 'file' | 'jsembed';
+  readonly type: 'text' | 'image' | 'file' | 'jsembed' | 'youtube-video';
   readonly subtype: string;
   readonly metadata?: object;
   // tslint:disable-next-line: no-mixed-interface

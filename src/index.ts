@@ -4,3 +4,4 @@ export * from './lib/stories-writer';
 export * from './lib/author-stream';
 export * from './lib/section-stream';
 export * from './lib/story-attribute-stream';
+export * from './lib/entity-stream';

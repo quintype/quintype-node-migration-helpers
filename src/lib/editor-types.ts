@@ -1,9 +1,7 @@
 import { Writable } from 'stream';
 
-interface StoryMandatoryFields {
-  /** The id of this content in the external system */
-  readonly 'external-id': string;
-
+/** Mandatory fields of story */
+interface StoryMandatoryFields extends ExternalId {
   /** The story headline */
   readonly headline: string;
 
@@ -35,17 +33,13 @@ interface StoryHeroImageFields {
 interface Metadata {
   /** All story attributes that belong to the story. Each key is a string and value is an array of strings */
   readonly 'story-attributes'?: {
-    readonly [key: string]: ReadonlyArray<string>;
+    readonly [key: string]: ReadonlyArray<string> | ReadonlyArray<Entity>;
   };
 }
 
 interface StoryMetadataFields {
   /** The list of authors (in order) for this content */
-  readonly authors: ReadonlyArray<{
-    /** The id of the section or category in the source system */
-    readonly 'external-id': string;
-    readonly name: string;
-  }>;
+  readonly authors: ReadonlyArray<Author>;
 
   /** List of tags. The name of the tag is case insensivite */
   readonly tags: ReadonlyArray<{ readonly name: string }>;
@@ -59,6 +53,7 @@ interface StoryMetadataFields {
   /** Story Metadata */
   readonly metadata?: Metadata;
 
+  /** Story Seo */
   readonly seo?: { readonly [key: string]: string | ReadonlyArray<string> };
 }
 
@@ -94,24 +89,61 @@ export interface MetadataStreamOptions {
 }
 
 export interface ExternalId {
+  /** The id of this content in the external system */
   readonly 'external-id': string;
 }
 
+/** Author of story */
 export interface Author extends ExternalId {
+  /** Full Name of Author  */
   readonly name: string;
+
+  /** Slug associated with author */
   readonly slug?: string;
-  readonly email?: string;
-  readonly username?: string;
+
+  /** Email of Author */
+  readonly email: string;
+
+  /** Username of Author */
+  readonly username: string;
+
+  /** Bio of Author */
   readonly bio?: string;
+
+  /** Role of author */
+  readonly role?: string;
+
+  /** Avatar-url of author */
   readonly 'avatar-url'?: string;
+
+  /** Additional detail of author */
+  readonly metadata?: { readonly [key: string]: string | object };
 }
 
+/** Section of story */
 export interface Section extends ExternalId {
+  /** Name of section */
   readonly name: string;
+
+  /** Display name for section that will appear in front end */
   readonly 'display-name'?: string;
+
+  /** Slug of section */
   readonly slug?: string;
 
+  /** If this section is child of a section */
   readonly parent?: Section;
+
+  /** Section Seo */
+  readonly 'seo-metadata'?: {
+    readonly description: string;
+    readonly keywords: ReadonlyArray<string>;
+    readonly 'page-title': string;
+    readonly title: string;
+  };
+
+  /** Additional details of Section */
+  readonly 'collection-metadata'?: object;
 }
 
 export interface StoryAttribute extends ExternalId {
@@ -120,4 +152,29 @@ export interface StoryAttribute extends ExternalId {
   readonly 'display-name': string;
   readonly 'data-type': 'multi-valued-strings';
   readonly 'is-mandatory': boolean;
+}
+
+/** Tag associated with story */
+export interface Tag extends ExternalId {
+  /** Name of Tag */
+  readonly name: string;
+
+  /** Type of entity */
+  readonly type?: string;
+
+  /** slug of tag */
+  readonly slug?: string;
+}
+
+/** Entity associated with story could be story attribute could be Entity as Tag */
+export interface Entity extends ExternalId {
+  /** Name of Entity */
+  readonly name: string;
+
+  /** Type of entity */
+  readonly type: string;
+
+  /** slug and Additional detail of entity */
+  // tslint:disable-next-line
+  readonly [key: string]: string | object;
 }

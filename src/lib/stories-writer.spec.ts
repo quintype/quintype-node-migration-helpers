@@ -47,7 +47,9 @@ describe('writeStories', () => {
         for (let i = 0; i < 5; i++) {
           yield {
             ...commonStoryFields,
-            authors: [{ 'external-id': `author-${i}`, name: 'Author' }],
+            authors: [
+              { 'external-id': `author-${i}`, name: 'Author', email: 'author@please.chan', username: 'Author' }
+            ],
             'external-id': `story-${i}`,
             headline: `Story Number ${i}`,
             slug: `story-${i}`
@@ -62,7 +64,12 @@ describe('writeStories', () => {
       });
       await new Promise(resolve => stubAuthorStream.end(resolve));
       expect(await streamToArray(stubAuthorStream)).toEqual(
-        [0, 1, 2, 3, 4].map(i => ({ name: `Author`, 'external-id': `author-${i}` }))
+        [0, 1, 2, 3, 4].map(i => ({
+          name: `Author`,
+          'external-id': `author-${i}`,
+          email: 'author@please.chan',
+          username: 'Author'
+        }))
       );
     });
 

@@ -79,8 +79,13 @@ interface StoryElements {
   readonly 'story-elements': ReadonlyArray<StoryElement>;
 }
 
+/** List of cards */
+interface Cards {
+  readonly cards: ReadonlyArray<Card>;
+}
+
 /** Represents a Story in the Editor. Please See Individual Parts of the Story. */
-export type Story = StoryMandatoryFields & StoryHeroImageFields & StoryMetadataFields & (StoryElements | StoryBody);
+export type Story = StoryMandatoryFields & StoryHeroImageFields & StoryMetadataFields & (StoryElements | StoryBody | Cards);
 
 export interface MetadataStreamOptions {
   readonly authorStream?: Writable;
@@ -177,4 +182,11 @@ export interface Entity extends ExternalId {
   /** slug and Additional detail of entity */
   // tslint:disable-next-line
   readonly [key: string]: string | object;
+}
+
+/** Card */
+export interface Card extends ExternalId {
+  readonly 'story-elements': ReadonlyArray<StoryElements>;
+  readonly metadata: { readonly [key: string]: string | object };
+  readonly id: string;
 }

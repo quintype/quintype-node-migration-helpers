@@ -85,7 +85,10 @@ interface Cards {
 }
 
 /** Represents a Story in the Editor. Please See Individual Parts of the Story. */
-export type Story = StoryMandatoryFields & StoryHeroImageFields & StoryMetadataFields & (StoryElements | StoryBody | Cards);
+export type Story = StoryMandatoryFields &
+  StoryHeroImageFields &
+  StoryMetadataFields &
+  (StoryElements | StoryBody | Cards);
 
 export interface MetadataStreamOptions {
   readonly authorStream?: Writable;

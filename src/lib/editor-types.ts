@@ -8,20 +8,14 @@ interface StoryMandatoryFields extends ExternalId {
   /** The canonical path to this story */
   readonly slug: string;
 
-  /** The time of first publish. This should be in epoch date * 1000 for milliseconds */
-  readonly 'first-published-at': number;
+  /** List of sections or categories that this story belongs to */
+  readonly sections: ReadonlyArray<Section>;
 
-  /** The time of most recent edit. This should be in epoch date * 1000 for milliseconds */
-  readonly 'last-published-at': number;
-
-  /** The time of most recent edit. This should be in epoch date * 1000 for milliseconds */
-  readonly 'published-at': number;
+  /** The list of authors (in order) for this content */
+  readonly authors: ReadonlyArray<Author>;
 
   /** The type of the story. Use `'text'` for a normal story */
   readonly 'story-template': string;
-
-  /** Optional Subheadline */
-  readonly subheadline?: string;
 }
 
 interface StoryHeroImageFields {
@@ -38,23 +32,29 @@ interface Metadata {
 }
 
 interface StoryMetadataFields {
-  /** The list of authors (in order) for this content */
-  readonly authors: ReadonlyArray<Author>;
-
   /** List of tags. The name of the tag is case insensivite */
-  readonly tags: ReadonlyArray<{ readonly name: string }>;
-
-  /** List of sections or categories that this story belongs to */
-  readonly sections: ReadonlyArray<Section>;
+  readonly tags?: ReadonlyArray<{ readonly name: string }>;
 
   /** 140 character social share message */
-  readonly summary: string;
+  readonly summary?: string;
 
   /** Story Metadata */
   readonly metadata?: Metadata;
 
+  /** The time of first publish. This should be in epoch date * 1000 for milliseconds */
+  readonly 'first-published-at'?: number;
+
+  /** The time of most recent edit. This should be in epoch date * 1000 for milliseconds */
+  readonly 'last-published-at'?: number;
+
+  /** The time of most recent edit. This should be in epoch date * 1000 for milliseconds */
+  readonly 'published-at'?: number;
+
   /** Story Seo */
   readonly seo?: { readonly [key: string]: string | ReadonlyArray<string> };
+
+  /** Optional Subheadline */
+  readonly subheadline?: string;
 }
 
 /** Use StoryBody to send a blob of HTML to be parsed later. Also {@link StoryElements} */
@@ -137,17 +137,17 @@ export interface Section extends ExternalId {
   readonly 'display-name'?: string;
 
   /** Slug of section */
-  readonly slug?: string;
+  readonly slug: string;
 
   /** If this section is child of a section */
   readonly parent?: Section;
 
   /** Section Seo */
   readonly 'seo-metadata'?: {
-    readonly description: string;
-    readonly keywords: ReadonlyArray<string>;
-    readonly 'page-title': string;
-    readonly title: string;
+    readonly description?: string;
+    readonly keywords?: ReadonlyArray<string>;
+    readonly 'page-title'?: string;
+    readonly title?: string;
   };
 
   /** Additional details of Section */

@@ -9,10 +9,10 @@ interface StoryMandatoryFields extends ExternalId {
   readonly slug: string;
 
   /** List of sections or categories that this story belongs to */
-  readonly sections: ReadonlyArray<Section>;
+  readonly sections: ReadonlyArray<IntermediateSection>;
 
   /** The list of authors (in order) for this content */
-  readonly authors: ReadonlyArray<Author>;
+  readonly authors: ReadonlyArray<IntermediateAuthor>;
 
   /** The type of the story. Use `'text'` for a normal story */
   readonly 'story-template': string;
@@ -33,7 +33,7 @@ interface Metadata {
 
 interface StoryMetadataFields {
   /** List of tags. The name of the tag is case insensivite */
-  readonly tags?: ReadonlyArray<{ readonly name: string }>;
+  readonly tags?: ReadonlyArray<Tag | Entity>;
 
   /** 140 character social share message */
   readonly summary?: string;
@@ -128,6 +128,12 @@ export interface Author extends ExternalId {
   readonly metadata?: { readonly [key: string]: string | object };
 }
 
+/** Intermediate Author of story */
+export interface IntermediateAuthor extends ExternalId {
+  /** Email of Author */
+  readonly email: string;
+}
+
 /** Section of story */
 export interface Section extends ExternalId {
   /** Name of section */
@@ -154,6 +160,15 @@ export interface Section extends ExternalId {
   readonly 'collection-metadata'?: object;
 }
 
+/** Intermediate Section of story */
+export interface IntermediateSection extends ExternalId {
+  /** Slug of section */
+  readonly slug: string;
+
+  /** If this section is child of a section */
+  readonly parent?: IntermediateSection;
+}
+
 export interface StoryAttribute extends ExternalId {
   readonly name: string;
   readonly values: ReadonlyArray<string>;
@@ -163,7 +178,7 @@ export interface StoryAttribute extends ExternalId {
 }
 
 /** Tag associated with story */
-export interface Tag extends ExternalId {
+export interface Tag {
   /** Name of Tag */
   readonly name: string;
 
@@ -172,6 +187,9 @@ export interface Tag extends ExternalId {
 
   /** slug of tag */
   readonly slug?: string;
+
+  /** external ID of the tag */
+  readonly 'external-id'?: string;
 }
 
 /** Entity associated with story could be story attribute could be Entity as Tag */

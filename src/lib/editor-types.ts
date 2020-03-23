@@ -55,6 +55,9 @@ interface StoryMetadataFields {
 
   /** Optional Subheadline */
   readonly subheadline?: string;
+
+  /** status of story */
+  readonly status?: 'open' | 'published'
 }
 
 /** Use StoryBody to send a blob of HTML to be parsed later. Also {@link StoryElements} */

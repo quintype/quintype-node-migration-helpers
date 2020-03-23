@@ -9,6 +9,7 @@ describe('createSectionStream', () => {
   async function mapExternalIdToSections(externalIds: ReadonlyArray<ExternalId>): Promise<ReadonlyArray<Section>> {
     return externalIds.map(x => ({
       'display-name': `Section ${x['external-id']}`,
+      'slug': 'sec',
       'external-id': x['external-id'],
       name: `Section ${x['external-id']}`
     }));

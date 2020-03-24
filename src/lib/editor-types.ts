@@ -15,7 +15,7 @@ interface StoryMandatoryFields extends ExternalId {
   readonly authors: ReadonlyArray<IntermediateAuthor>;
 
   /** The type of the story. Use `'text'` for a normal story */
-  readonly 'story-template': string;
+  readonly 'story-template': 'text' | 'photo' | 'video';
 }
 
 interface StoryHeroImageFields {

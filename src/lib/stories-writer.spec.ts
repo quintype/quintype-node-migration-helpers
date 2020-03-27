@@ -18,7 +18,7 @@ const commonStoryFields = {
   'last-published-at': 0,
   'published-at': 0,
   sections: [],
-  'story-template': 'text',
+  'story-template': 'text' as 'text',
   summary: 'A story for testing',
   tags: []
 };

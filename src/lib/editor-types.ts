@@ -15,7 +15,16 @@ interface StoryMandatoryFields extends ExternalId {
   readonly authors: ReadonlyArray<IntermediateAuthor>;
 
   /** The type of the story. Use `'text'` for a normal story */
-  readonly 'story-template': 'text' | 'photo' | 'video';
+  readonly 'story-template': 'text' | 'photo' | 'video' | 'poll' | 'live-blog';
+
+  /** The time of first publish. This should be in epoch date * 1000 for milliseconds */
+  readonly 'first-published-at': number;
+
+  /** The time of most recent edit. This should be in epoch date * 1000 for milliseconds */
+  readonly 'last-published-at': number;
+
+  /** The time of most recent edit. This should be in epoch date * 1000 for milliseconds */
+  readonly 'published-at': number;
 }
 
 interface StoryHeroImageFields {
@@ -41,15 +50,6 @@ interface StoryMetadataFields {
   /** Story Metadata */
   readonly metadata?: Metadata;
 
-  /** The time of first publish. This should be in epoch date * 1000 for milliseconds */
-  readonly 'first-published-at'?: number;
-
-  /** The time of most recent edit. This should be in epoch date * 1000 for milliseconds */
-  readonly 'last-published-at'?: number;
-
-  /** The time of most recent edit. This should be in epoch date * 1000 for milliseconds */
-  readonly 'published-at'?: number;
-
   /** Story Seo */
   readonly seo?: { readonly [key: string]: string | ReadonlyArray<string> };
 
@@ -70,7 +70,7 @@ interface StoryBody {
 export interface StoryElement {
   readonly title: '';
   readonly description: '';
-  readonly type: 'text' | 'image' | 'file' | 'jsembed' | 'youtube-video';
+  readonly type: 'text' | 'image' | 'file' | 'jsembed' | 'youtube-video' | 'composite';
   readonly subtype: string;
   readonly metadata?: object;
   // tslint:disable-next-line: no-mixed-interface
@@ -91,7 +91,13 @@ interface Cards {
 export type Story = StoryMandatoryFields &
   StoryHeroImageFields &
   StoryMetadataFields &
-  (StoryElements | StoryBody | Cards);
+  StoryBody;
+
+/** Represents a Story in the Editor for internal use. Has additional Story-elements and Cards properties. Please See Individual Parts of the Story. */
+export type StoryInternal = StoryMandatoryFields &
+  StoryHeroImageFields &
+  StoryMetadataFields &
+  (StoryElements | StoryBody | Cards); 
 
 export interface MetadataStreamOptions {
   readonly authorStream?: Writable;

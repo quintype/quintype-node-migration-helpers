@@ -141,6 +141,9 @@ export interface Author extends ExternalId {
 export interface IntermediateAuthor extends ExternalId {
   /** Email of Author */
   readonly email: string;
+
+  /** Name of Author */
+  readonly name: string;
 }
 
 /** Section of story */
@@ -171,6 +174,9 @@ export interface Section extends ExternalId {
 
 /** Intermediate Section of story */
 export interface IntermediateSection extends ExternalId {
+  /** Name of section */
+  readonly name: string;  
+  
   /** Slug of section */
   readonly slug: string;
 

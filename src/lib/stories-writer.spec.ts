@@ -48,7 +48,7 @@ describe('writeStories', () => {
           yield {
             ...commonStoryFields,
             authors: [
-              { 'external-id': `author-${i}`, email: 'author@please.chan' }
+              { 'external-id': `author-${i}`, email: 'author@please.chan', name: 'Foo Bar' }
             ],
             'external-id': `story-${i}`,
             headline: `Story Number ${i}`,
@@ -80,7 +80,7 @@ describe('writeStories', () => {
             ...commonStoryFields,
             'external-id': `story-${i}`,
             headline: `Story Number ${i}`,
-            sections: [{ 'external-id': `section-${i}`, 'slug': 'sec' }],
+            sections: [{ 'external-id': `section-${i}`, 'slug': 'sec', name: 'foo' }],
             slug: `story-${i}`
           };
         }

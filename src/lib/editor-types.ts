@@ -63,7 +63,7 @@ interface StoryMetadataFields {
   readonly access?: string;
 
   /** access-level-value of story */
-  readonly 'access-level-value'?: string;
+  readonly 'access-level-value'?: number;
 }
 
 /** Use StoryBody to send a blob of HTML to be parsed later. Also {@link StoryElements} */

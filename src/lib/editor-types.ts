@@ -8,6 +8,15 @@ interface StoryMandatoryFields extends ExternalId {
   /** The canonical path to this story */
   readonly slug: string;
 
+  /** List of sections or categories that this story belongs to */
+  readonly sections: ReadonlyArray<IntermediateSection>;
+
+  /** The list of authors (in order) for this content */
+  readonly authors: ReadonlyArray<IntermediateAuthor>;
+
+  /** The type of the story. Use `'text'` for a normal story */
+  readonly 'story-template': 'text' | 'photo' | 'video' | 'poll' | 'live-blog';
+
   /** The time of first publish. This should be in epoch date * 1000 for milliseconds */
   readonly 'first-published-at': number;
 
@@ -16,12 +25,6 @@ interface StoryMandatoryFields extends ExternalId {
 
   /** The time of most recent edit. This should be in epoch date * 1000 for milliseconds */
   readonly 'published-at': number;
-
-  /** The type of the story. Use `'text'` for a normal story */
-  readonly 'story-template': string;
-
-  /** Optional Subheadline */
-  readonly subheadline?: string;
 }
 
 interface StoryHeroImageFields {
@@ -38,23 +41,29 @@ interface Metadata {
 }
 
 interface StoryMetadataFields {
-  /** The list of authors (in order) for this content */
-  readonly authors: ReadonlyArray<Author>;
-
   /** List of tags. The name of the tag is case insensivite */
-  readonly tags: ReadonlyArray<{ readonly name: string }>;
-
-  /** List of sections or categories that this story belongs to */
-  readonly sections: ReadonlyArray<Section>;
+  readonly tags?: ReadonlyArray<Tag | Entity>;
 
   /** 140 character social share message */
-  readonly summary: string;
+  readonly summary?: string;
 
   /** Story Metadata */
   readonly metadata?: Metadata;
 
   /** Story Seo */
   readonly seo?: { readonly [key: string]: string | ReadonlyArray<string> };
+
+  /** Optional Subheadline */
+  readonly subheadline?: string;
+
+  /** status of story */
+  readonly status?: 'open' | 'published';
+
+  /** access of story */
+  readonly access?: string;
+
+  /** access-level-value of story */
+  readonly 'access-level-value'?: number;
 }
 
 /** Use StoryBody to send a blob of HTML to be parsed later. Also {@link StoryElements} */
@@ -67,7 +76,7 @@ interface StoryBody {
 export interface StoryElement {
   readonly title: '';
   readonly description: '';
-  readonly type: 'text' | 'image' | 'file' | 'jsembed' | 'youtube-video';
+  readonly type: 'text' | 'image' | 'file' | 'jsembed' | 'youtube-video' | 'composite';
   readonly subtype: string;
   readonly metadata?: object;
   // tslint:disable-next-line: no-mixed-interface
@@ -88,7 +97,13 @@ interface Cards {
 export type Story = StoryMandatoryFields &
   StoryHeroImageFields &
   StoryMetadataFields &
-  (StoryElements | StoryBody | Cards);
+  StoryBody;
+
+/** Represents a Story in the Editor for internal use. Has additional Story-elements and Cards properties. Please See Individual Parts of the Story. */
+export type StoryInternal = StoryMandatoryFields &
+  StoryHeroImageFields &
+  StoryMetadataFields &
+  (StoryElements | StoryBody | Cards); 
 
 export interface MetadataStreamOptions {
   readonly authorStream?: Writable;
@@ -128,6 +143,15 @@ export interface Author extends ExternalId {
   readonly metadata?: { readonly [key: string]: string | object };
 }
 
+/** Intermediate Author of story */
+export interface IntermediateAuthor extends ExternalId {
+  /** Email of Author */
+  readonly email: string;
+
+  /** Name of Author */
+  readonly name: string;
+}
+
 /** Section of story */
 export interface Section extends ExternalId {
   /** Name of section */
@@ -137,21 +161,33 @@ export interface Section extends ExternalId {
   readonly 'display-name'?: string;
 
   /** Slug of section */
-  readonly slug?: string;
+  readonly slug: string;
 
   /** If this section is child of a section */
   readonly parent?: Section;
 
   /** Section Seo */
   readonly 'seo-metadata'?: {
-    readonly description: string;
-    readonly keywords: ReadonlyArray<string>;
-    readonly 'page-title': string;
-    readonly title: string;
+    readonly description?: string;
+    readonly keywords?: ReadonlyArray<string>;
+    readonly 'page-title'?: string;
+    readonly title?: string;
   };
 
   /** Additional details of Section */
   readonly 'collection-metadata'?: object;
+}
+
+/** Intermediate Section of story */
+export interface IntermediateSection extends ExternalId {
+  /** Name of section */
+  readonly name: string;  
+  
+  /** Slug of section */
+  readonly slug: string;
+
+  /** If this section is child of a section */
+  readonly parent?: IntermediateSection;
 }
 
 export interface StoryAttribute extends ExternalId {
@@ -163,7 +199,7 @@ export interface StoryAttribute extends ExternalId {
 }
 
 /** Tag associated with story */
-export interface Tag extends ExternalId {
+export interface Tag {
   /** Name of Tag */
   readonly name: string;
 
@@ -172,6 +208,9 @@ export interface Tag extends ExternalId {
 
   /** slug of tag */
   readonly slug?: string;
+
+  /** external ID of the tag */
+  readonly 'external-id'?: string;
 }
 
 /** Entity associated with story could be story attribute could be Entity as Tag */

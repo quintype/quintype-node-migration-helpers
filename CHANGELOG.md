@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.14.2"></a>
+## [1.14.2](https://github.com/gja/@quintype/migration-helpers/compare/v1.14.1...v1.14.2) (2020-04-14)
+
+
+
 <a name="1.14.1"></a>
 ## [1.14.1](https://github.com/gja/@quintype/migration-helpers/compare/v1.14.0...v1.14.1) (2020-02-19)
 

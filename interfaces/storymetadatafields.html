@@ -79,10 +79,12 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="storymetadatafields.html#authors" class="tsd-kind-icon">authors</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="storymetadatafields.html#access" class="tsd-kind-icon">access</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="storymetadatafields.html#access_level_value" class="tsd-kind-icon">access-<wbr>level-<wbr>value</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="storymetadatafields.html#metadata" class="tsd-kind-icon">metadata</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="storymetadatafields.html#sections" class="tsd-kind-icon">sections</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="storymetadatafields.html#seo" class="tsd-kind-icon">seo</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="storymetadatafields.html#status" class="tsd-kind-icon">status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="storymetadatafields.html#subheadline" class="tsd-kind-icon">subheadline</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="storymetadatafields.html#summary" class="tsd-kind-icon">summary</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="storymetadatafields.html#tags" class="tsd-kind-icon">tags</a></li>
 							</ul>
@@ -93,17 +95,32 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="authors" class="tsd-anchor"></a>
-					<h3>authors</h3>
-					<div class="tsd-signature tsd-kind-icon">authors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="author.html" class="tsd-signature-type">Author</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="access" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> access</h3>
+					<div class="tsd-signature tsd-kind-icon">access<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/bf95687/src/lib/editor-types.ts#L42">lib/editor-types.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/fab4837/src/lib/editor-types.ts#L63">lib/editor-types.ts:63</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The list of authors (in order) for this content</p>
+							<p>access of story</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="access_level_value" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> access-<wbr>level-<wbr>value</h3>
+					<div class="tsd-signature tsd-kind-icon">access-<wbr>level-<wbr>value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/fab4837/src/lib/editor-types.ts#L66">lib/editor-types.ts:66</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>access-level-value of story</p>
 						</div>
 					</div>
 				</section>
@@ -113,7 +130,7 @@
 					<div class="tsd-signature tsd-kind-icon">metadata<span class="tsd-signature-symbol">:</span> <a href="metadata.html" class="tsd-signature-type">Metadata</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/bf95687/src/lib/editor-types.ts#L54">lib/editor-types.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/fab4837/src/lib/editor-types.ts#L51">lib/editor-types.ts:51</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -123,27 +140,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="sections" class="tsd-anchor"></a>
-					<h3>sections</h3>
-					<div class="tsd-signature tsd-kind-icon">sections<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="section.html" class="tsd-signature-type">Section</a><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/bf95687/src/lib/editor-types.ts#L48">lib/editor-types.ts:48</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>List of sections or categories that this story belongs to</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 					<a name="seo" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> seo</h3>
 					<div class="tsd-signature tsd-kind-icon">seo<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/bf95687/src/lib/editor-types.ts#L57">lib/editor-types.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/fab4837/src/lib/editor-types.ts#L54">lib/editor-types.ts:54</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -153,12 +155,42 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="summary" class="tsd-anchor"></a>
-					<h3>summary</h3>
-					<div class="tsd-signature tsd-kind-icon">summary<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="status" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> status</h3>
+					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"open"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"published"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/bf95687/src/lib/editor-types.ts#L51">lib/editor-types.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/fab4837/src/lib/editor-types.ts#L60">lib/editor-types.ts:60</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>status of story</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="subheadline" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> subheadline</h3>
+					<div class="tsd-signature tsd-kind-icon">subheadline<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/fab4837/src/lib/editor-types.ts#L57">lib/editor-types.ts:57</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Optional Subheadline</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="summary" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> summary</h3>
+					<div class="tsd-signature tsd-kind-icon">summary<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/fab4837/src/lib/editor-types.ts#L48">lib/editor-types.ts:48</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -169,11 +201,11 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 					<a name="tags" class="tsd-anchor"></a>
-					<h3>tags</h3>
-					<div class="tsd-signature tsd-kind-icon">tags<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> tags</h3>
+					<div class="tsd-signature tsd-kind-icon">tags<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="tag.html" class="tsd-signature-type">Tag</a><span class="tsd-signature-symbol"> | </span><a href="entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/bf95687/src/lib/editor-types.ts#L45">lib/editor-types.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/fab4837/src/lib/editor-types.ts#L45">lib/editor-types.ts:45</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -212,6 +244,12 @@
 					<li class=" tsd-kind-interface">
 						<a href="generatetofileoptions.html" class="tsd-kind-icon">Generate<wbr>ToFile<wbr>Options</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="intermediateauthor.html" class="tsd-kind-icon">Intermediate<wbr>Author</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="intermediatesection.html" class="tsd-kind-icon">Intermediate<wbr>Section</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="metadata.html" class="tsd-kind-icon">Metadata</a>
 					</li>
@@ -245,16 +283,22 @@
 						<a href="storymetadatafields.html" class="tsd-kind-icon">Story<wbr>Metadata<wbr>Fields</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="storymetadatafields.html#authors" class="tsd-kind-icon">authors</a>
+								<a href="storymetadatafields.html#access" class="tsd-kind-icon">access</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="storymetadatafields.html#access_level_value" class="tsd-kind-icon">access-<wbr>level-<wbr>value</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="storymetadatafields.html#metadata" class="tsd-kind-icon">metadata</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="storymetadatafields.html#sections" class="tsd-kind-icon">sections</a>
+								<a href="storymetadatafields.html#seo" class="tsd-kind-icon">seo</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="storymetadatafields.html#seo" class="tsd-kind-icon">seo</a>
+								<a href="storymetadatafields.html#status" class="tsd-kind-icon">status</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="storymetadatafields.html#subheadline" class="tsd-kind-icon">subheadline</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="storymetadatafields.html#summary" class="tsd-kind-icon">summary</a>
@@ -277,6 +321,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#story" class="tsd-kind-icon">Story</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#storyinternal" class="tsd-kind-icon">Story<wbr>Internal</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#endauthorstream" class="tsd-kind-icon">end<wbr>Author<wbr>Stream</a>

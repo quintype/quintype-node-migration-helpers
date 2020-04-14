@@ -94,16 +94,13 @@ interface Cards {
 }
 
 /** Represents a Story in the Editor. Please See Individual Parts of the Story. */
-export type Story = StoryMandatoryFields &
-  StoryHeroImageFields &
-  StoryMetadataFields &
-  StoryBody;
+export type Story = StoryMandatoryFields & StoryHeroImageFields & StoryMetadataFields & StoryBody;
 
 /** Represents a Story in the Editor for internal use. Has additional Story-elements and Cards properties. Please See Individual Parts of the Story. */
 export type StoryInternal = StoryMandatoryFields &
   StoryHeroImageFields &
   StoryMetadataFields &
-  (StoryElements | StoryBody | Cards); 
+  (StoryElements | StoryBody | Cards);
 
 export interface MetadataStreamOptions {
   readonly authorStream?: Writable;
@@ -181,8 +178,8 @@ export interface Section extends ExternalId {
 /** Intermediate Section of story */
 export interface IntermediateSection extends ExternalId {
   /** Name of section */
-  readonly name: string;  
-  
+  readonly name: string;
+
   /** Slug of section */
   readonly slug: string;
 

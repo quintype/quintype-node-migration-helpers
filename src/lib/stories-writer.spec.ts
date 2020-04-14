@@ -47,9 +47,7 @@ describe('writeStories', () => {
         for (let i = 0; i < 5; i++) {
           yield {
             ...commonStoryFields,
-            authors: [
-              { 'external-id': `author-${i}`, email: 'author@please.chan', name: 'Foo Bar' }
-            ],
+            authors: [{ 'external-id': `author-${i}`, email: 'author@please.chan', name: 'Foo Bar' }],
             'external-id': `story-${i}`,
             headline: `Story Number ${i}`,
             slug: `story-${i}`

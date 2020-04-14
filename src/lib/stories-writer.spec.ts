@@ -67,8 +67,7 @@ describe('writeStories', () => {
         [0, 1, 2, 3, 4].map(i => ({
           email: 'author@please.chan',
           'external-id': `author-${i}`,
-          name: `Author`,
-          username: 'Author'
+          name: `Foo Bar`
         }))
       );
     });
@@ -80,7 +79,7 @@ describe('writeStories', () => {
             ...commonStoryFields,
             'external-id': `story-${i}`,
             headline: `Story Number ${i}`,
-            sections: [{ 'external-id': `section-${i}`, 'slug': 'sec', name: 'foo' }],
+            sections: [{ 'external-id': `section-${i}`, slug: 'sec', name: 'foo' }],
             slug: `story-${i}`
           };
         }
@@ -93,7 +92,7 @@ describe('writeStories', () => {
       });
       await new Promise(resolve => stubSectionStream.end(resolve));
       expect(await streamToArray(stubSectionStream)).toEqual(
-        [0, 1, 2, 3, 4].map(i => ({ name: `Section`, 'external-id': `section-${i}` }))
+        [0, 1, 2, 3, 4].map(i => ({ name: 'foo', slug: 'sec', 'external-id': `section-${i}` }))
       );
     });
 

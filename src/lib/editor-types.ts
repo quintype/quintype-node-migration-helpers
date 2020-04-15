@@ -8,10 +8,16 @@ interface StoryMandatoryFields extends ExternalId {
   /** The canonical path to this story */
   readonly slug: string;
 
-  /** List of sections or categories that this story belongs to */
+  /**
+   * List of sections or categories that this story belongs to
+   * @minItems 1
+   */
   readonly sections: ReadonlyArray<IntermediateSection>;
 
-  /** The list of authors (in order) for this content */
+  /**
+   * The list of authors (in order) for this content
+   * @minItems 1
+   */
   readonly authors: ReadonlyArray<IntermediateAuthor>;
 
   /** The type of the story. Use `'text'` for a normal story */
@@ -197,10 +203,11 @@ export interface StoryAttribute extends ExternalId {
 
 /** Tag associated with story */
 export interface Tag {
-  /** Name of Tag
-  * @minLength 3
-  * @maxLength 100
-  */
+  /**
+   * Name of Tag
+   * @minLength 3
+   * @maxLength 100
+   */
   readonly name: string;
 
   /** Type of entity */

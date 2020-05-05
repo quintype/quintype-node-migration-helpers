@@ -12,12 +12,12 @@ const streamToArray = require('stream-to-array');
 // tslint:enable:no-var-requires
 
 const commonStoryFields = {
-  authors: [],
+  authors: [{ 'external-id': 'sec-001', name: 'Sec1', email: 'abc@foobar' }],
   body: '<p><Foo/p>',
   'first-published-at': 0,
   'last-published-at': 0,
   'published-at': 0,
-  sections: [],
+  sections: [{ 'external-id': 'sec-001', name: 'Sec1', slug: 'sec' }],
   'story-template': 'text' as 'text',
   summary: 'A story for testing',
   tags: []
@@ -106,7 +106,7 @@ describe('writeStories', () => {
                 [`foo-${i}`]: ['bar']
               }
             },
-            sections: [],
+            sections: [{ 'external-id': 'sec-001', name: 'Sec1', slug: 'sec' }],
             slug: `story-${i}`
           };
         }

@@ -197,7 +197,10 @@ export interface StoryAttribute extends ExternalId {
 
 /** Tag associated with story */
 export interface Tag {
-  /** Name of Tag */
+  /** Name of Tag
+  * @minLength 3
+  * @maxLength 100
+  */
   readonly name: string;
 
   /** Type of entity */

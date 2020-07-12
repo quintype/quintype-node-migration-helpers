@@ -80,10 +80,20 @@ interface StoryBody {
 
 /** Use StoryElement to send individual story elements to the editor */
 export interface StoryElement {
-  readonly title: '';
-  readonly description: '';
+  readonly title?: '';
+  readonly description?: '';
   readonly type: 'text' | 'image' | 'file' | 'jsembed' | 'youtube-video' | 'composite';
-  readonly subtype: string;
+  readonly subtype:
+    | 'null'
+    | 'summary'
+    | 'bigfact'
+    | 'also-read'
+    | 'quote'
+    | 'blockquote'
+    | 'blurb'
+    | 'question'
+    | 'answer'
+    | 'q-and-a';
   readonly metadata?: object;
   // tslint:disable-next-line: no-mixed-interface
   readonly [key: string]: string | object | undefined;
@@ -91,6 +101,10 @@ export interface StoryElement {
 
 /** Use StoryElements for a more fine grained control on the created elements. Also see {@link StoryBody} */
 interface StoryElements {
+  /**
+   * The list ofstory-elements
+   * @minItems 1
+   */
   readonly 'story-elements': ReadonlyArray<StoryElement>;
 }
 
@@ -100,10 +114,7 @@ interface Cards {
 }
 
 /** Represents a Story in the Editor. Please See Individual Parts of the Story. */
-export type Story = StoryMandatoryFields & StoryHeroImageFields & StoryMetadataFields & StoryBody;
-
-/** Represents a Story in the Editor for internal use. Has additional Story-elements and Cards properties. Please See Individual Parts of the Story. */
-export type StoryInternal = StoryMandatoryFields &
+export type Story = StoryMandatoryFields &
   StoryHeroImageFields &
   StoryMetadataFields &
   (StoryElements | StoryBody | Cards);
@@ -153,6 +164,9 @@ export interface IntermediateAuthor extends ExternalId {
 
   /** Name of Author */
   readonly name: string;
+
+  /** Username of Author */
+  readonly username?: string;
 }
 
 /** Section of story */
@@ -205,7 +219,7 @@ export interface StoryAttribute extends ExternalId {
 export interface Tag {
   /**
    * Name of Tag
-   * @minLength 3
+   * @minLength 2
    * @maxLength 100
    */
   readonly name: string;

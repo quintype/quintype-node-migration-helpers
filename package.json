@@ -64,7 +64,7 @@
     "nyc": "^13.1.0",
     "opn-cli": "^4.0.0",
     "prettier": "^1.15.2",
-    "standard-version": "^4.4.0",
+    "standard-version": "^8.0.1",
     "stream-to-array": "^2.3.0",
     "tmp": "^0.1.0",
     "tmp-promise": "^1.0.5",

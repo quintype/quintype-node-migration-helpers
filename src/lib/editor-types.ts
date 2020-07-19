@@ -48,7 +48,7 @@ interface Metadata {
 
 interface StoryMetadataFields {
   /** List of tags. The name of the tag is case insensivite */
-  readonly tags?: ReadonlyArray<Tag | Entity>;
+  readonly tags?: ReadonlyArray<Tag>;
 
   /** 140 character social share message */
   readonly summary?: string;

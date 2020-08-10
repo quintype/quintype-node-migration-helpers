@@ -99,13 +99,35 @@ export interface StoryElement {
   readonly [key: string]: string | object | undefined;
 }
 
+export interface TitleStoryElement {
+  /**
+   * Content of Title
+   * @minLength 1
+   */
+  readonly text: string;
+  readonly type: 'title';
+  readonly subtype?: null;
+  readonly metadata?: object;
+}
+
+export interface TextStoryElement {
+  /**
+   * Content of Text
+   * @minLength 1
+   */
+  readonly text: string;
+  readonly type: 'text';
+  readonly subtype: null;
+  readonly metadata?: object;
+}
+
 /** Use StoryElements for a more fine grained control on the created elements. Also see {@link StoryBody} */
 interface StoryElements {
   /**
    * The list ofstory-elements
    * @minItems 1
    */
-  readonly 'story-elements': ReadonlyArray<StoryElement>;
+  readonly 'story-elements': ReadonlyArray<TitleStoryElement | TextStoryElement>;
 }
 
 /** List of cards */

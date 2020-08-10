@@ -100,6 +100,10 @@ export interface StoryElement {
 }
 
 export interface TitleStoryElement {
+  /**
+   * Content of Title
+   * @minLength 1
+   */
   readonly text: string;
   readonly type: 'title';
   readonly subtype?: null;
@@ -107,6 +111,10 @@ export interface TitleStoryElement {
 }
 
 export interface TextStoryElement {
+  /**
+   * Content of Text
+   * @minLength 1
+   */
   readonly text: string;
   readonly type: 'text';
   readonly subtype: null;

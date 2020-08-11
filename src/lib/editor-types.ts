@@ -117,7 +117,7 @@ export interface TextStoryElement {
    */
   readonly text: string;
   readonly type: 'text';
-  readonly subtype: null;
+  readonly subtype: null | 'summary';
   readonly metadata?: object;
 }
 

@@ -114,10 +114,11 @@ export interface TextStoryElement {
   /**
    * Content of Text
    * @minLength 1
+   * @pattern ^<.+>.+<\/.+>$
    */
   readonly text: string;
   readonly type: 'text';
-  readonly subtype: null | 'summary';
+  readonly subtype: null | 'summary' | 'bigfact';
   readonly metadata?: object;
 }
 

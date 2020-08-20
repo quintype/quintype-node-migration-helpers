@@ -99,7 +99,7 @@ export interface StoryElement {
   readonly [key: string]: string | object | undefined;
 }
 
-export interface TitleStoryElement {
+export interface TitleElement {
   /**
    * Content of Title
    * @minLength 1
@@ -110,16 +110,39 @@ export interface TitleStoryElement {
   readonly metadata?: object;
 }
 
-export interface TextStoryElement {
+export interface TextElement {
   /**
    * Content of Text
    * @minLength 1
-   * @pattern ^<.+>.+<\/.+>$
+   * @pattern ^<p>.+<\/p>$
    */
   readonly text: string;
   readonly type: 'text';
-  readonly subtype: null | 'summary' | 'bigfact';
+  readonly subtype: null | 'summary';
   readonly metadata?: object;
+}
+
+export interface BigfactElement {
+  /**
+   * Content of Text
+   * @minLength 1
+   * @pattern ^<div><div class=\"bigfact-title\">.+</div><div class=\"bigfact-description\">.+</div></div>$
+   */
+  readonly text: string;
+  readonly type: 'text';
+  readonly subtype: 'bigfact';
+  readonly metadata: {
+    /**
+     * Title of Bigfact
+     * @minLength 1
+     */
+    readonly content: string;
+    /**
+     * Description of Bigfact
+     * @minLength 1
+     */
+    readonly attribution: string;
+  };
 }
 
 /** Use StoryElements for a more fine grained control on the created elements. Also see {@link StoryBody} */
@@ -128,7 +151,7 @@ interface StoryElements {
    * The list ofstory-elements
    * @minItems 1
    */
-  readonly 'story-elements': ReadonlyArray<TitleStoryElement | TextStoryElement>;
+  readonly 'story-elements': ReadonlyArray<TitleElement | TextElement | BigfactElement>;
 }
 
 /** List of cards */

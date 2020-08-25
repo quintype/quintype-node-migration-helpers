@@ -145,13 +145,31 @@ export interface BigfactElement {
   };
 }
 
+export interface BlurbElement {
+  /**
+   * Content of Text
+   * @minLength 1
+   * @pattern ^<blockquote>.+</blockquote>$
+   */
+  readonly text: string;
+  readonly type: 'text';
+  readonly subtype: 'blurb';
+  readonly metadata: {
+    /**
+     * Title of Bigfact
+     * @minLength 1
+     */
+    readonly content: string;
+  };
+}
+
 /** Use StoryElements for a more fine grained control on the created elements. Also see {@link StoryBody} */
 interface StoryElements {
   /**
    * The list ofstory-elements
    * @minItems 1
    */
-  readonly 'story-elements': ReadonlyArray<TitleElement | TextElement | BigfactElement>;
+  readonly 'story-elements': ReadonlyArray<TitleElement | TextElement | BigfactElement | BlurbElement>;
 }
 
 /** List of cards */

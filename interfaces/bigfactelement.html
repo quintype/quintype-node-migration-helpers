@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cards | @quintype/migration-helpers</title>
+	<title>BigfactElement | @quintype/migration-helpers</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,28 +54,21 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="cards.html">Cards</a>
+					<a href="bigfactelement.html">BigfactElement</a>
 				</li>
 			</ul>
-			<h1>Interface Cards</h1>
+			<h1>Interface BigfactElement</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>List of cards</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Cards</span>
+						<span class="target">BigfactElement</span>
 					</li>
 				</ul>
 			</section>
@@ -83,55 +76,141 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-not-exported">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="cards.html#cards-1" class="tsd-kind-icon">cards</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="bigfactelement.html#metadata" class="tsd-kind-icon">metadata</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="bigfactelement.html#subtype" class="tsd-kind-icon">subtype</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="bigfactelement.html#text" class="tsd-kind-icon">text</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="bigfactelement.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="cards-1" class="tsd-anchor"></a>
-					<h3>cards</h3>
-					<div class="tsd-signature tsd-kind-icon">cards<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="card.html" class="tsd-signature-type">Card</a><span class="tsd-signature-symbol">&gt;</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="metadata" class="tsd-anchor"></a>
+					<h3>metadata</h3>
+					<div class="tsd-signature tsd-kind-icon">metadata<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/b6b85e1/src/lib/editor-types.ts#L177">lib/editor-types.ts:177</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/b6b85e1/src/lib/editor-types.ts#L134">lib/editor-types.ts:134</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>attribution<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Description of Bigfact</p>
+									</div>
+									<dl class="tsd-comment-tags">
+										<dt>minlength</dt>
+										<dd><p>1</p>
+										</dd>
+									</dl>
+								</div>
+							</li>
+							<li class="tsd-parameter">
+								<h5>content<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Title of Bigfact</p>
+									</div>
+									<dl class="tsd-comment-tags">
+										<dt>minlength</dt>
+										<dd><p>1</p>
+										</dd>
+									</dl>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="subtype" class="tsd-anchor"></a>
+					<h3>subtype</h3>
+					<div class="tsd-signature tsd-kind-icon">subtype<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"bigfact"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/b6b85e1/src/lib/editor-types.ts#L133">lib/editor-types.ts:133</a></li>
 						</ul>
 					</aside>
 				</section>
-			</section>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-is-not-exported">
-						<a href="cards.html" class="tsd-kind-icon">Cards</a>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="text" class="tsd-anchor"></a>
+					<h3>text</h3>
+					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="cards.html#cards-1" class="tsd-kind-icon">cards</a>
-							</li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/b6b85e1/src/lib/editor-types.ts#L131">lib/editor-types.ts:131</a></li>
 						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Content of Text</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>minlength</dt>
+							<dd><p>1</p>
+							</dd>
+							<dt>pattern</dt>
+		<dd><p>^<div>&lt;div class="bigfact-title"&gt;.+</div>&lt;div class="bigfact-description"&gt;.+</div></div>$</p>
+		</dd>
+		</dl>
+	</div>
+	</section>
+	<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+		<a name="type" class="tsd-anchor"></a>
+		<h3>type</h3>
+		<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"text"</span></div>
+		<aside class="tsd-sources">
+			<ul>
+				<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/b6b85e1/src/lib/editor-types.ts#L132">lib/editor-types.ts:132</a></li>
+			</ul>
+		</aside>
+	</section>
+	</section>
+</div>
+<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+	<nav class="tsd-navigation primary">
+		<ul>
+			<li class="globals  ">
+				<a href="../globals.html"><em>Globals</em></a>
+			</li>
+		</ul>
+	</nav>
+	<nav class="tsd-navigation secondary menu-sticky">
+		<ul class="before-current">
+		</ul>
+		<ul class="current">
+			<li class="current tsd-kind-interface">
+				<a href="bigfactelement.html" class="tsd-kind-icon">Bigfact<wbr>Element</a>
+				<ul>
+					<li class=" tsd-kind-property tsd-parent-kind-interface">
+						<a href="bigfactelement.html#metadata" class="tsd-kind-icon">metadata</a>
+					</li>
+					<li class=" tsd-kind-property tsd-parent-kind-interface">
+						<a href="bigfactelement.html#subtype" class="tsd-kind-icon">subtype</a>
+					</li>
+					<li class=" tsd-kind-property tsd-parent-kind-interface">
+						<a href="bigfactelement.html#text" class="tsd-kind-icon">text</a>
+					</li>
+					<li class=" tsd-kind-property tsd-parent-kind-interface">
+						<a href="bigfactelement.html#type" class="tsd-kind-icon">type</a>
 					</li>
 				</ul>
-				<ul class="after-current">
-				</ul>
-			</nav>
-		</div>
-	</div>
+			</li>
+		</ul>
+		<ul class="after-current">
+		</ul>
+	</nav>
+</div>
+</div>
 </div>
 <footer class="with-border-bottom">
 	<div class="container">

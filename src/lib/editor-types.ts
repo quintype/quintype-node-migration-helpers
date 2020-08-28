@@ -118,7 +118,7 @@ export interface TextElement {
    */
   readonly text: string;
   readonly type: 'text';
-  readonly subtype: null | 'summary';
+  readonly subtype: null | 'summary' | 'question';
   readonly metadata?: object;
 }
 

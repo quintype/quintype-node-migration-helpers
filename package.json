@@ -5,7 +5,6 @@
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/gja/@quintype/migration-helpers",
   "license": "MIT",
   "keywords": [],
   "scripts": {

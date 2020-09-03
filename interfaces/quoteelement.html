@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IntermediateSection | @quintype/migration-helpers</title>
+	<title>QuoteElement | @quintype/migration-helpers</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,33 +54,21 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="intermediatesection.html">IntermediateSection</a>
+					<a href="quoteelement.html">QuoteElement</a>
 				</li>
 			</ul>
-			<h1>Interface IntermediateSection</h1>
+			<h1>Interface QuoteElement</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Intermediate Section of story</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="externalid.html" class="tsd-signature-type">ExternalId</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">IntermediateSection</span>
-							</li>
-						</ul>
+						<span class="target">QuoteElement</span>
 					</li>
 				</ul>
 			</section>
@@ -91,10 +79,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="intermediatesection.html#external_id" class="tsd-kind-icon">external-<wbr>id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="intermediatesection.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="intermediatesection.html#parent" class="tsd-kind-icon">parent</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="intermediatesection.html#slug" class="tsd-kind-icon">slug</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="quoteelement.html#metadata" class="tsd-kind-icon">metadata</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="quoteelement.html#subtype" class="tsd-kind-icon">subtype</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="quoteelement.html#text" class="tsd-kind-icon">text</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="quoteelement.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -102,66 +90,79 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="external_id" class="tsd-anchor"></a>
-					<h3>external-<wbr>id</h3>
-					<div class="tsd-signature tsd-kind-icon">external-<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="metadata" class="tsd-anchor"></a>
+					<h3>metadata</h3>
+					<div class="tsd-signature tsd-kind-icon">metadata<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="externalid.html">ExternalId</a>.<a href="externalid.html#external_id">external-id</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/37eb9a0/src/lib/editor-types.ts#L213">lib/editor-types.ts:213</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/37eb9a0/src/lib/editor-types.ts#L175">lib/editor-types.ts:175</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The id of this content in the external system</p>
-						</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> attribution<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>content<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Content of Quote</p>
+									</div>
+									<dl class="tsd-comment-tags">
+										<dt>minlength</dt>
+										<dd><p>1</p>
+										</dd>
+									</dl>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="subtype" class="tsd-anchor"></a>
+					<h3>subtype</h3>
+					<div class="tsd-signature tsd-kind-icon">subtype<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"quote"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/37eb9a0/src/lib/editor-types.ts#L284">lib/editor-types.ts:284</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/37eb9a0/src/lib/editor-types.ts#L174">lib/editor-types.ts:174</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="text" class="tsd-anchor"></a>
+					<h3>text</h3>
+					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/37eb9a0/src/lib/editor-types.ts#L172">lib/editor-types.ts:172</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Name of section</p>
+							<p>Content of Text</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>minlength</dt>
+							<dd><p>1</p>
+							</dd>
+							<dt>pattern</dt>
+							<dd><p>^<div><blockquote>.+</blockquote>&lt;span class="attribution"&gt;.+</span></div>$</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="parent" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> parent</h3>
-					<div class="tsd-signature tsd-kind-icon">parent<span class="tsd-signature-symbol">:</span> <a href="intermediatesection.html" class="tsd-signature-type">IntermediateSection</a></div>
+					<a name="type" class="tsd-anchor"></a>
+					<h3>type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"text"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/37eb9a0/src/lib/editor-types.ts#L290">lib/editor-types.ts:290</a></li>
+							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/37eb9a0/src/lib/editor-types.ts#L173">lib/editor-types.ts:173</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>If this section is child of a section</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="slug" class="tsd-anchor"></a>
-					<h3>slug</h3>
-					<div class="tsd-signature tsd-kind-icon">slug<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/quintype/quintype-node-migration-helpers/blob/37eb9a0/src/lib/editor-types.ts#L287">lib/editor-types.ts:287</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Slug of section</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -178,19 +179,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="intermediatesection.html" class="tsd-kind-icon">Intermediate<wbr>Section</a>
+						<a href="quoteelement.html" class="tsd-kind-icon">Quote<wbr>Element</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="intermediatesection.html#external_id" class="tsd-kind-icon">external-<wbr>id</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="quoteelement.html#metadata" class="tsd-kind-icon">metadata</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="intermediatesection.html#name" class="tsd-kind-icon">name</a>
+								<a href="quoteelement.html#subtype" class="tsd-kind-icon">subtype</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="intermediatesection.html#parent" class="tsd-kind-icon">parent</a>
+								<a href="quoteelement.html#text" class="tsd-kind-icon">text</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="intermediatesection.html#slug" class="tsd-kind-icon">slug</a>
+								<a href="quoteelement.html#type" class="tsd-kind-icon">type</a>
 							</li>
 						</ul>
 					</li>

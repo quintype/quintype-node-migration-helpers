@@ -163,13 +163,32 @@ export interface BlurbElement {
   };
 }
 
+export interface QuoteElement {
+  /**
+   * Content of Text
+   * @minLength 1
+   * @pattern ^<div><blockquote>.+</blockquote><span class=\"attribution\">.+</span></div>$
+   */
+  readonly text: string;
+  readonly type: 'text';
+  readonly subtype: 'quote';
+  readonly metadata: {
+    /**
+     * Content of Quote
+     * @minLength 1
+     */
+    readonly content: string;
+    readonly attribution?: string;
+  };
+}
+
 /** Use StoryElements for a more fine grained control on the created elements. Also see {@link StoryBody} */
 interface StoryElements {
   /**
    * The list ofstory-elements
    * @minItems 1
    */
-  readonly 'story-elements': ReadonlyArray<TitleElement | TextElement | BigfactElement | BlurbElement>;
+  readonly 'story-elements': ReadonlyArray<TitleElement | TextElement | BigfactElement | BlurbElement | QuoteElement>;
 }
 
 /** List of cards */

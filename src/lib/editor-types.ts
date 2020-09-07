@@ -78,27 +78,6 @@ interface StoryBody {
   readonly body: string;
 }
 
-/** Use StoryElement to send individual story elements to the editor */
-export interface StoryElement {
-  readonly title?: '';
-  readonly description?: '';
-  readonly type: 'text' | 'image' | 'file' | 'jsembed' | 'youtube-video' | 'composite';
-  readonly subtype:
-    | 'null'
-    | 'summary'
-    | 'bigfact'
-    | 'also-read'
-    | 'quote'
-    | 'blockquote'
-    | 'blurb'
-    | 'question'
-    | 'answer'
-    | 'q-and-a';
-  readonly metadata?: object;
-  // tslint:disable-next-line: no-mixed-interface
-  readonly [key: string]: string | object | undefined;
-}
-
 export interface TitleElement {
   /**
    * Content of Title
@@ -171,7 +150,7 @@ export interface QuoteElement {
    */
   readonly text: string;
   readonly type: 'text';
-  readonly subtype: 'quote';
+  readonly subtype: 'quote' | 'blockquote';
   readonly metadata: {
     /**
      * Content of Quote

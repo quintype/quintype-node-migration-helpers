@@ -161,13 +161,32 @@ export interface QuoteElement {
   };
 }
 
+export interface ReferenceElement {
+  readonly type: 'composite';
+  readonly subtype: 'references';
+  readonly 'story-elements': ReadonlyArray<{
+    readonly type: 'text';
+    readonly text: string;
+
+    /** Details of reference element */
+    readonly metadata: {
+      readonly name: string;
+      readonly url: string;
+      readonly description?: string;
+    };
+    
+    /** Additional detail of reference element */
+    readonly [key: string]: string | object;
+  }>
+}
+
 /** Use StoryElements for a more fine grained control on the created elements. Also see {@link StoryBody} */
 interface StoryElements {
   /**
    * The list ofstory-elements
    * @minItems 1
    */
-  readonly 'story-elements': ReadonlyArray<TitleElement | TextElement | BigfactElement | BlurbElement | QuoteElement>;
+  readonly 'story-elements': ReadonlyArray<TitleElement | TextElement | BigfactElement | BlurbElement | QuoteElement | ReferenceElement>;
 }
 
 /** List of cards */

@@ -166,6 +166,10 @@ export interface ReferenceElement {
   readonly subtype: 'references';
   readonly 'story-elements': ReadonlyArray<{
     readonly type: 'text';
+    /**
+     * Content of Text
+     * @minLength 1
+     */
     readonly text: string;
 
     /** Details of reference element */

@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.14.7"></a>
+## [1.14.7](https://github.com/quintype/quintype-node-migration-helpers/compare/v1.14.6...v1.14.7) (2020-09-21)
+
+
+
 <a name="1.14.6"></a>
 ## [1.14.6](https://github.com/quintype/quintype-node-migration-helpers/compare/v1.14.5...v1.14.6) (2020-09-03)
 

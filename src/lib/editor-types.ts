@@ -178,10 +178,19 @@ export interface ReferenceElement {
       readonly url: string;
       readonly description?: string;
     };
-    
+
     /** Additional detail of reference element */
     readonly [key: string]: string | object;
-  }>
+  }>;
+}
+
+export interface JSEmbedElement {
+  readonly type: 'jsembed';
+  /**
+   * Content of Text
+   * @minLength 1
+   */
+  readonly 'embed-js': string;
 }
 
 /** Use StoryElements for a more fine grained control on the created elements. Also see {@link StoryBody} */
@@ -190,7 +199,9 @@ interface StoryElements {
    * The list ofstory-elements
    * @minItems 1
    */
-  readonly 'story-elements': ReadonlyArray<TitleElement | TextElement | BigfactElement | BlurbElement | QuoteElement| ReferenceElement>;
+  readonly 'story-elements': ReadonlyArray<
+    TitleElement | TextElement | BigfactElement | BlurbElement | QuoteElement | ReferenceElement | JSEmbedElement
+  >;
 }
 
 /** List of cards */

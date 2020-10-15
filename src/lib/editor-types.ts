@@ -5,7 +5,11 @@ interface StoryMandatoryFields extends ExternalId {
   /** The story headline */
   readonly headline: string;
 
-  /** The canonical path to this story */
+  /**
+   * The canonical path to this story
+   * @minLength 1
+   * @pattern ^[a-z0-9]+(?:-[a-z0-9]+)*$
+   */
   readonly slug: string;
 
   /**
@@ -231,7 +235,11 @@ export interface Author extends ExternalId {
   /** Full Name of Author  */
   readonly name: string;
 
-  /** Slug associated with author */
+  /**
+   * Slug associated with author
+   * @minLength 1
+   * @pattern ^[a-z0-9]+(?:-[a-z0-9]+)*$
+   */
   readonly slug?: string;
 
   /** Email of Author */
@@ -273,7 +281,11 @@ export interface Section extends ExternalId {
   /** Display name for section that will appear in front end */
   readonly 'display-name'?: string;
 
-  /** Slug of section */
+  /**
+   * Slug of section
+   * @minLength 1
+   * @pattern ^[a-z0-9]+(?:-[a-z0-9]+)*$
+   */
   readonly slug: string;
 
   /** If this section is child of a section */
@@ -296,7 +308,11 @@ export interface IntermediateSection extends ExternalId {
   /** Name of section */
   readonly name: string;
 
-  /** Slug of section */
+  /**
+   * Slug of section
+   * @minLength 1
+   * @pattern ^[a-z0-9]+(?:-[a-z0-9]+)*$
+   */
   readonly slug: string;
 
   /** If this section is child of a section */
@@ -323,7 +339,11 @@ export interface Tag {
   /** Type of entity */
   readonly type?: string;
 
-  /** slug of tag */
+  /**
+   * Slug of tag
+   * @minLength 1
+   * @pattern ^[a-z0-9]+(?:-[a-z0-9]+)*$
+   */
   readonly slug?: string;
 
   /** external ID of the tag */

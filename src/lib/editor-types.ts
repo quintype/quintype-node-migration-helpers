@@ -64,7 +64,7 @@ interface StoryMetadataFields {
   readonly seo?: { 
     readonly 'meta-description'?: string;
     readonly 'meta-title'?: string;
-    readonly 'meta-keywords'?: Array<string>;
+    readonly 'meta-keywords'?: ReadonlyArray<string>;
    };
 
   /** Optional Subheadline */

@@ -61,7 +61,11 @@ interface StoryMetadataFields {
   readonly metadata?: Metadata;
 
   /** Story Seo */
-  readonly seo?: { readonly [key: string]: string | ReadonlyArray<string> };
+  readonly seo?: { 
+    readonly 'meta-description'?: string;
+    readonly 'meta-title'?: string;
+    readonly 'meta-keywords'?: Array<string>;
+   };
 
   /** Optional Subheadline */
   readonly subheadline?: string;
@@ -258,7 +262,7 @@ export interface Author extends ExternalId {
   readonly 'avatar-url'?: string;
 
   /** Additional detail of author */
-  readonly metadata?: { readonly [key: string]: string | object };
+  readonly metadata?: { readonly [key: string]: string | object | Array<string> };
 }
 
 /** Intermediate Author of story */

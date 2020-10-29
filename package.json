@@ -1,6 +1,6 @@
 {
   "name": "@quintype/migration-helpers",
-  "version": "1.14.9",
+  "version": "1.14.10",
   "description": "Helper Functions for Migrations",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",

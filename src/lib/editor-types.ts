@@ -262,7 +262,7 @@ export interface Author extends ExternalId {
   readonly 'avatar-url'?: string;
 
   /** Additional detail of author */
-  readonly metadata?: { readonly [key: string]: string | object | Array<string> };
+  readonly metadata?: { readonly [key: string]: string | object | Array<any> };
 }
 
 /** Intermediate Author of story */

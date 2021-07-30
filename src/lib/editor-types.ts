@@ -25,7 +25,7 @@ interface StoryMandatoryFields extends ExternalId {
   readonly authors: ReadonlyArray<IntermediateAuthor>;
 
   /** The type of the story. Use `'text'` for a normal story */
-  readonly 'story-template': 'text' | 'photo' | 'video' | 'poll' | 'live-blog';
+  readonly 'story-template': 'text' | 'photo' | 'video' | 'poll' | 'live-blog' | 'horoscope';
 
   /** The time of first publish. This should be in epoch date * 1000 for milliseconds */
   readonly 'first-published-at': number;
@@ -78,6 +78,11 @@ interface StoryMetadataFields {
 
   /** access-level-value of story */
   readonly 'access-level-value'?: number;
+
+  readonly 'hero-image-metadata'?: {
+    'width': number,
+    'height': number
+}
 }
 
 /** Use StoryBody to send a blob of HTML to be parsed later. Also {@link StoryElements} */
@@ -106,7 +111,7 @@ export interface TextElement {
   readonly text: string;
   readonly type: 'text';
   readonly subtype: null | 'summary' | 'question' | 'answer';
-  readonly metadata?: object;
+  readonly metadata?: any;
 }
 
 export interface BigfactElement {
@@ -201,6 +206,35 @@ export interface JSEmbedElement {
   readonly 'embed-js': string;
 }
 
+export interface ImageElement {
+  readonly type: 'image';
+  /**
+   * Content of Text
+   * @minLength 1
+   */
+  readonly url: string;
+  readonly [key: string]: string | object | null | undefined;
+}
+
+export interface GalleryElement {
+  readonly type: 'composite';
+  readonly subtype: 'image-gallery';
+  readonly metadata: {
+    readonly type: 'slideshow';
+  };
+  readonly 'story-elements': ReadonlyArray<ImageElement>;
+}
+
+export interface VideoElement {
+  readonly type: 'youtube-video';
+  /**
+   * Content of Text
+   * @minLength 1
+   */
+  readonly url: string;
+  readonly [key: string]: string | object | null | undefined;
+}
+
 /** Use StoryElements for a more fine grained control on the created elements. Also see {@link StoryBody} */
 interface StoryElements {
   /**
@@ -208,8 +242,7 @@ interface StoryElements {
    * @minItems 1
    */
   readonly 'story-elements': ReadonlyArray<
-    TitleElement | TextElement | BigfactElement | BlurbElement | QuoteElement | ReferenceElement | JSEmbedElement
-  >;
+    TitleElement | TextElement | BigfactElement | BlurbElement | QuoteElement | ReferenceElement | JSEmbedElement | ImageElement | GalleryElement | VideoElement >;
 }
 
 /** List of cards */
